@@ -4,7 +4,6 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 //Scraping tools
-var axios = require("axios");
 
 
 //Requiring the models:
@@ -16,6 +15,7 @@ var app = express();
 
 
 //Configure middleware:
+var axios = require("axios");
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
