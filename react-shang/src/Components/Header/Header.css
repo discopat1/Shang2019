@@ -1,0 +1,25 @@
+#welcome-header{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/reactshang.appspot.com/o/timmcG.png?alt=media&token=7bce7cfc-e856-4bd9-afee-0f77b586bde5");
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    
+}
+.overlay{
+   
+    width: 60%;
+    color: white;
+    position:absolute;
+    background: rgb(3, 8, 12, .3);
+    text-align: center;
+    height: 15%;
+    font-family: 'Fugaz One', cursive;
+    font-size:40px;
+    padding-top:0;
+}

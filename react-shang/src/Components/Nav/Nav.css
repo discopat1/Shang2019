@@ -1,0 +1,40 @@
+.navbar{
+    background-color:black;
+    width:80%;
+    margin: 0 auto;
+    align-content: space-between
+}
+.navbar-expand{
+   justify-content: space-between !important;
+ 
+}
+.container-fluid{
+    width:82%;
+    
+}
+/* nav{
+    align-content: space-between;
+    color:lime;
+    font-size:18px;
+    
+} */
+
+.nav-item{
+    color:#007bff !important;
+}
+.nav-link{
+    background-color:none;
+    text-decoration: none;
+    color: hotpink;
+}
+
+
+
+.dropdown-menu{
+    background-color:black;
+}
+
+
+.dropdown-item{
+    color:lime !important;
+}

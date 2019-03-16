@@ -1,0 +1,27 @@
+.form-group{
+    background-color: black;
+    
+}
+
+.form-control{
+    background-color:white;
+    color:black;
+    font-size: 14px;
+    height:20px;
+    width: 200px;
+    line-height:20px;
+    font-family: 'Fugaz One', cursive;
+    padding-top:2px;
+    text-align: center;
+    vertical-align: middle;
+    
+    
+
+}
+
+.search{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+justify-content: flex-start
+}
