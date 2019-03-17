@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './CreateAccount.css';
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -9,7 +8,10 @@ import Modal from 'react-bootstrap/Modal';
 
 
 class AccountModal extends Component {
-
+    state={
+        username: "",
+        password: ""
+    }
 
 
     render(){
