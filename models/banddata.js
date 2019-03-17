@@ -1,24 +1,24 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
 // Save a reference to the Schema constructor
-var Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
 // Using the Schema constructor, create a new NoteSchema object
 // This is similar to a Sequelize model
 var bandSchema = new Schema({
-  band: String,
-  stage: String, 
-  time: String,
-  day: String,
-  image: String,
-  url: String,
-  bio: String,
+  band: {type: String, required: true},
+  stage: {type: String, required: true},
+  time: {type: String, required: true},
+  day: {type: String, required: true},
+  image: {type: String, required: true},
+  url: {type: String, required: true},
+  bio: {type: String, required: true},
 
 });
 
 
 // This creates our model from the above schema, using mongoose's model method
-var Bands = mongoose.model("Bands", bandSchema);
+const Bands = mongoose.model("Bands", bandSchema);
 
 // Export the Note model
 module.exports = Bands;
