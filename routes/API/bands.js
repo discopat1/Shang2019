@@ -3,14 +3,14 @@ const bandsController = require("../../controllers/bandsController");
 
 // Matches with "/api/bands"
 router.route("/")
-  .get(booksController.findAll)
-  .post(booksController.create);
+  .get(bandsController.findAll)
+  .post(bandsController.create);
 
 // Matches with "/api/bands/:id"
 router
   .route("/:id")
-  .get(booksController.findById)
-  .put(booksController.update)
-  .delete(booksController.remove);
+  .get(bandsController.findById)
+  .put(bandsController.update)
+  .delete(bandsController.remove);
 
 module.exports = router;

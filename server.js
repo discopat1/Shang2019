@@ -20,9 +20,6 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/shangrila");
 
 
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
 
 
 // //API ROUTES
