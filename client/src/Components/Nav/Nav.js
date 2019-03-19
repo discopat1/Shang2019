@@ -46,7 +46,7 @@ render(){
           </Dropdown.Menu>
         </Dropdown>
         
-           <Form inline>
+           <Form inline onSubmit={this.handleFormSubmit}>
             <FormControl type="band" placeholder="Search" className="mr-sm-2" onChange={this.handleInputChange} />
             <Button variant="outline-primary" onClick={this.handleFormSubmit}>Search Bands</Button>
             

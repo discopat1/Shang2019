@@ -10,6 +10,7 @@
 }
 .form-control{
     width:30%;
+    margin-bottom: 5px;
 }
 
 .firstpage-content{
@@ -27,4 +28,14 @@
 #firstpage-icon{
     justify-content: flex-end;
     background-image: url("https://shangrilafest.com/wp-content/uploads/2018/07/SkyCastle-Logo-800x622.png")
+}
+
+#log-in-button{
+    margin-top:5px;
+    margin-right:5px;
+
+}
+#create-account-button{
+    margin-top:5px;
+    
 }

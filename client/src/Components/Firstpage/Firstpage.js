@@ -37,10 +37,10 @@ class Firstpage extends Component{
             <p>Login below in order to access your myLineup</p>
             
             <Form>
-            <FormControl type="band" placeholder="Search" className="mr-sm-2"/>
-            <FormControl type="username" placeholder="Username" className="mr-sm-2"/>
-            <Button className="outline-primary" variant="outline-success" type="Login" placeholder="Username" >Log In</Button>
-            <Button className="outline-success" type= "password" variant="outline-primary" placeholder="Password" >Create Account</Button>
+            <FormControl type="band" placeholder="Username" className="mr-sm-2"/>
+            <FormControl type="username" placeholder="Password" className="mr-sm-2"/>
+            <Button className="outline-primary" id="log-in-button"variant="outline-success" type="Login">Log In</Button>
+            <Button className="outline-success" id="create-account-button"type= "password" variant="outline-primary">Create Account</Button>
             </Form>
             </div>
                 
