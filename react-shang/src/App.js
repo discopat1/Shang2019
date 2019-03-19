@@ -4,6 +4,7 @@ import './App.css';
 import Header from './Components/Header';
 import Nav from './Components/Nav';
 import Bandcards from './Components/BandCards';
+import myLineup from './Pages/myLineup';
 import stages from './stage.json';
 import Schedule from './Components/Schedule';
 import { library } from '@fortawesome/fontawesome-svg-core';

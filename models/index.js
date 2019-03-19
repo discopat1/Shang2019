@@ -1,3 +1,5 @@
 module.exports = {
-    Band: require("./banddata"),
+    Bands: require("./banddata"),
+
+    
   };

@@ -32,7 +32,7 @@ render(){
           <Nav.Link href="/">Home</Nav.Link>
        </Nav.Item>
        <Nav.Item>
-              {/* <Nav.Link href="/myLineup/:id?">myLineup</Nav.Link> */}
+              <Nav.Link href="Pages/myLineup">myLineup</Nav.Link>
               <Nav.Link>Log in</Nav.Link>
            </Nav.Item>
         <Dropdown>
@@ -40,31 +40,11 @@ render(){
               Stage Schedules</Dropdown.Toggle>
         <Dropdown.Menu>
             <Nav.Link event key="link-main" href="/main">Main Stage</Nav.Link> 
-              <ul id="stage-days">
-                <Dropdown.Item eventKey="/main-fri" href="/main/friday">Friday</Dropdown.Item>
-                <Dropdown.Item eventKey="/main-sat" href="/main/saturday">Saturday</Dropdown.Item>
-                <Dropdown.Item eventKey="/main-sun" href="/main/sunday">Sunday</Dropdown.Item>
-              </ul>
             <Nav.Link eventKey="link-side" href="/side">Side Stage</Nav.Link>
-            <ul id="stage-days">
-                <Dropdown.Item eventKey="side-fri" href="/side/friday">Friday</Dropdown.Item>
-                <Dropdown.Item eventKey="side-sat" href="/side/saturday">Saturday</Dropdown.Item>
-                <Dropdown.Item eventKey="side-sun" href="/side/sunday">Sunday</Dropdown.Item>
-              </ul>
             <Nav.Link eventKey="link-harmonium" href="/harmonium">Harmonium</Nav.Link>
-            <ul className="stage-days">
-                <Dropdown.Item eventKey="harmonium-fri" href="/harmonium/friday">Friday</Dropdown.Item>
-                <Dropdown.Item eventKey="harmonium-sat" href="/harmonium/saturday">Saturday</Dropdown.Item>
-                <Dropdown.Item eventKey="harmonium-sun" href="/harmonium/sunday">Sunday</Dropdown.Item>
-              </ul>
             <Nav.Link eventKey="link-om" href="om">Om Dome</Nav.Link>
-            <ul className="stage-days">
-                <Dropdown.Item eventKey="om-fri" href="/om/friday">Friday</Dropdown.Item>
-                <Dropdown.Item eventKey="om-sat" href="/om/saturday">Saturday</Dropdown.Item>
-                <Dropdown.Item eventKey="om-sun" href="/om/sunday">Sunday</Dropdown.Item>
-              </ul>
-              </Dropdown.Menu>
-          </Dropdown>
+          </Dropdown.Menu>
+        </Dropdown>
         
            <Form inline>
             <FormControl type="band" placeholder="Search" className="mr-sm-2" onChange={this.handleInputChange} />

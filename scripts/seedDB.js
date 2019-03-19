@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-// This file empties the Books collection and inserts the books below
+// This file empties the collection and inserts the bands below
 
 mongoose.connect(
   process.env.MONGODB_URI ||
   "mongodb://localhost/shangrila"
 );
+
  const bandSeed = [
      {
         
@@ -373,7 +374,9 @@ mongoose.connect(
 
      
  ];
+ console.log("end of the band data", db.Bands)
  db.Bands
+ 
   .remove({})
   .then(() => db.Bands.collection.insertMany(bandSeed))
   .then(data => {
