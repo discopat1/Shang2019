@@ -43,7 +43,7 @@ export default {
   getHarmoniumSunday: function (){
     return axios.get("/api/bands/harmonium/sunday")
   },
-  getOM: function(){
+  getOm: function(){
     return axios.get("/api/bands/om")
   },
   gotOmFriday: function(){
