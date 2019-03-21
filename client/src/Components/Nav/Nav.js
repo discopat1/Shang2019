@@ -14,39 +14,130 @@ import API from "../../utils/API";
 
 
 class Navigation extends Component{
- 
-  state={
-    search:"",
-    stages:""
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      bands: [],
+      stage: "",
+      band: "",
+      time: "",
+      day: "",
+      image: "",
+      url: "",
+      bio: ""
+  
+    };
+  
   }
 
-
-handleInputChange=(e) =>{
-  this.setState({search:e.target.value})
-}
-handleFormSubmit=(e)=>{
-  e.preventDefault();
-  this.setState({search: e.target.value})
-  alert("You are searching for a band!")
+// loadMain= (props) =>{
+//   API.getMain()
+//   .then(res =>
   
-}
-handleMainStage=(e)=>{
-  e.preventDefault();
-  this.setState({stage:e.target.value});
-  alert("Main stage value is", e.target.value)
-}
-handleSideStage =(e) =>{
-  this.setState({stage:e.target.value})
+//    this.setState({
+//     bands:res.data,
+//     stage:res.data.stage,
+//     band:res.data.band,
+//     time:res.data.time,
+//     day:res.data.day,
+//     image:res.data.image,
+//     url:res.data.url,
+//     bio:res.data.bio
+//      })
+  
+//   )
+//   .catch(err => console.log(err));
 
-}
-handleHarmonium = (e)=>{
-  this.setState({stage:e.target.value})
-}
+// };
+// loadSide=()=>{
+//   API.getSide()
+//   .then(res =>
+  
+//    this.setState({
+//     bands:res.data,
+//     stage:res.data.stage,
+//     band:res.data.band,
+//     time:res.data.time,
+//     day:res.data.day,
+//     image:res.data.image,
+//     url:res.data.url,
+//     bio:res.data.bio
+//      })
+  
+//   )
+//   .catch(err => console.log(err));
 
-handleOm=(e)=>{
-  this.setState({stage:e.target.value})
-}
+// }
+// loadHarmonium=()=>{
+//   API.getHarmonium()
+//   .then(res =>
+  
+//    this.setState({
+//     bands:res.data,
+//     stage:res.data.stage,
+//     band:res.data.band,
+//     time:res.data.time,
+//     day:res.data.day,
+//     image:res.data.image,
+//     url:res.data.url,
+//     bio:res.data.bio
+//      })
+  
+//   )
+//   .catch(err => console.log(err));
 
+// }
+
+// loadOm=()=>{
+//   API.getOm()
+//   .then(res =>
+  
+//    this.setState({
+//     bands:res.data,
+//     stage:res.data.stage,
+//     band:res.data.band,
+//     time:res.data.time,
+//     day:res.data.day,
+//     image:res.data.image,
+//     url:res.data.url,
+//     bio:res.data.bio
+//      })
+  
+//   )
+//   .catch(err => console.log(err));
+
+
+// };
+
+
+
+// handleInputChange=(e) =>{
+//   this.setState({search:e.target.value})
+// }
+// handleFormSubmit=(e)=>{
+//   e.preventDefault();
+//   this.setState({search: e.target.value})
+//   alert("You are searching for a band!")
+  
+// };
+// handleMainStage=(e)=>{
+//   e.preventDefault();
+//   loadMain();
+ 
+// }
+// handleSideStage =(e) =>{
+//   e.preventDefault();
+//   loadSide();
+// };
+// handleHarmonium = (e)=>{
+//   loadHarmonium();
+// };
+
+// handleOm=(e)=>{
+//   loadOm();
+// };
+  
 render(){
   return(  
       <Navbar className="bg-dark">
@@ -62,9 +153,9 @@ render(){
             <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Stage Schedules</Dropdown.Toggle>
         <Dropdown.Menu>
-            <Nav.Link href="/main" value="Main" onClick={this.handleMainStage}>Main Stage</Nav.Link> 
-            <Nav.Link href="/side" value="Side"onClick={this.handleSideStage}>Side Stage</Nav.Link>
-            <Nav.Link href="/harmonium" value="Harmonium" onClick={this.handleHarmonium}>Harmonium</Nav.Link>
+            <Nav.Link href="/main">Main Stage</Nav.Link> 
+            <Nav.Link href="/side">Side Stage</Nav.Link>
+            <Nav.Link href="/harmonium" value="Harmonium">Harmonium</Nav.Link>
             <Nav.Link href="/om">Om Dome</Nav.Link>
          </Dropdown.Menu>
         </Dropdown>
@@ -77,7 +168,7 @@ render(){
   </Navbar>
 )
 }
-}
- 
+
+};
 
 export default Navigation;

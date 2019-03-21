@@ -1,8 +1,18 @@
+#schedule-div{
+    display: flex;
+    justify-content: center;
+   
+}
 #schedule{
     display:flex;
     margin: 0 auto;
     margin-top:100px;
+    justify-content: center;
+    width:82%;
+    background-color:rgb(29, 4, 4)
+    
 }
+
 #band-name{
     justify-content: center;
 }

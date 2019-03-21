@@ -1,3 +1,12 @@
 body{
   background-color:black;
 }
+#schedule-head{
+  color:hotpink;
+  font-size: 50px;
+  
+  margin:0 auto;
+  width:82%;
+  text-align: center;
+  
+  }

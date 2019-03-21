@@ -15,6 +15,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire } from '@fortawesome/free-solid-svg-icons';
 import Firstpage from './Components/Firstpage/Firstpage';
+import Mainstage from './Components/Mainstage/Mainstage';
 library.add(fab, faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire);
 
 // import Swipe from {Component}'react-easy-swipe';
@@ -67,13 +68,15 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Header></Header>
+        
+          <Header/>
           <Nav />
           <Firstpage />
           <Switch>
             <Route path='/myLineup' Component={myLineup} />
+            
           </Switch>
+          <div id="schedule-head">The Full Lineup</div>
           <Schedule>
           {this.state.bands.map(band=>(
           <Bandcards
@@ -92,7 +95,7 @@ class App extends Component {
 
 
 
-        </div>
+        
       </Router>
     );
   }
