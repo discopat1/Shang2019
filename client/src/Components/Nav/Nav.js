@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Nav from 'react-bootstrap/Nav';
 import API from "../../utils/API";
-import Bandcards from "../BandCards";
 
 
 
@@ -20,6 +19,7 @@ class Navigation extends Component{
     search:"",
     stages:""
   }
+
 
 handleInputChange=(e) =>{
   this.setState({search:e.target.value})
@@ -64,7 +64,7 @@ render(){
         <Dropdown.Menu>
             <Nav.Link href="/main" value="Main" onClick={this.handleMainStage}>Main Stage</Nav.Link> 
             <Nav.Link href="/side" value="Side"onClick={this.handleSideStage}>Side Stage</Nav.Link>
-            <Nav.Link href="/harmonium" value="Harmonium" onCLick={this.handleHarmonium}>Harmonium</Nav.Link>
+            <Nav.Link href="/harmonium" value="Harmonium" onClick={this.handleHarmonium}>Harmonium</Nav.Link>
             <Nav.Link href="/om">Om Dome</Nav.Link>
          </Dropdown.Menu>
         </Dropdown>
