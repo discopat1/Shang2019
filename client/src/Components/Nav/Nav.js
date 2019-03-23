@@ -146,17 +146,17 @@ render(){
           <Nav.Link href="/">Home</Nav.Link>
        </Nav.Item>
        <Nav.Item>
-             <Link to ="/Pages/myLineup">myLineup</Link>
+             <Link to ="/mylineup">myLineup</Link>
               <Nav.Link>Log in</Nav.Link>
            </Nav.Item>
         <Dropdown>
             <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Stage Schedules</Dropdown.Toggle>
         <Dropdown.Menu>
-            <Nav.Link href="/main">Main Stage</Nav.Link> 
-            <Nav.Link href="/side">Side Stage</Nav.Link>
-            <Nav.Link href="/harmonium" value="Harmonium">Harmonium</Nav.Link>
-            <Nav.Link href="/om">Om Dome</Nav.Link>
+            <Link to="/main">Main Stage</Link> 
+            <Link to="/side">Side Stage</Link>
+            <Link to="/harmonium">Harmonium</Link>
+            <Link to="/om">Om Dome</Link>
          </Dropdown.Menu>
         </Dropdown>
         

@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import Schedule from "../Schedule";
 
 
-class Mainstage extends Component {
+class Harmonium extends Component {
     constructor(props) {
       super(props);
   
@@ -27,7 +27,7 @@ class Mainstage extends Component {
 
   // Loads all bands  and sets them to this.state.bands
   loadBands = () => {
-    API.getMain()
+    API.getHarmonium()
       .then(res =>
       
        this.setState({
@@ -49,8 +49,9 @@ class Mainstage extends Component {
   render(){
       return(
         <React.Fragment>
+        <h1>Harmonium Bands</h1>
           <Schedule>
-              <h1>Main Stage Bands</h1>
+              
           {this.state.bands.map(band=>(
           <Bandcards
          
@@ -70,4 +71,4 @@ class Mainstage extends Component {
   }
 }
 
-export default Mainstage;
+export default Harmonium;

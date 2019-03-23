@@ -16,40 +16,40 @@ import { Input, TextArea, FormBtn } from "react-bootstrap/Form"
 
 
 class myLineup extends Component{
-    // state= {
-    //     bands: [],
-    //     band: "",
-    //     time:"",
-    //     day: "",
-    //     image: "",
-    //     url: "",
-    //     bio: "",
+    state= {
+        bands: [],
+        band: "",
+        time:"",
+        day: "",
+        image: "",
+        url: "",
+        bio: "",
        
 
-    // };
+    };
 
-    // componentDidMount(){
-    //     this.loadUserBands();
-    // }
+    componentDidMount(){
+        this.loadUserBands();
+    }
 
-    // loadUserBands =() =>{
-    //     API.getUserbands()
-    //     .then(res =>
-    //         this.setState({bands:res.data, stage:"", band:"", time:"", day: "", image:"", url:"",bio:""})
-    //         )
-    //         .catch(err=> console.log(err));
-    // }; 
+    loadUserBands =() =>{
+        API.getUserbands()
+        .then(res =>
+            this.setState({bands:res.data, stage:"", band:"", time:"", day: "", image:"", url:"",bio:""})
+            )
+            .catch(err=> console.log(err));
+    }; 
 
-    // deleteBand = id => {
-    //     API.deleteBand(id)
-    //     .then(res => this.loadBands())
-    //     .catch(err => console.log(err));
-    // };
+    deleteBand = id => {
+        API.deleteBand(id)
+        .then(res => this.loadBands())
+        .catch(err => console.log(err));
+    };
 
 
 render(){
     return(
-        <div>
+        <React.Fragment>
         <Jumbotron>
             <h2>myLineUp</h2>
             <h4>Browse stages and bands on the left</h4>
@@ -74,7 +74,7 @@ render(){
             
         </Schedule>
         </Container>
-        </div>
+        </React.Fragment>
     )
 
 }

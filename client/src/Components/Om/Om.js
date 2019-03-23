@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import Schedule from "../Schedule";
 
 
-class Mainstage extends Component {
+class Om extends Component {
     constructor(props) {
       super(props);
   
@@ -27,7 +27,7 @@ class Mainstage extends Component {
 
   // Loads all bands  and sets them to this.state.bands
   loadBands = () => {
-    API.getMain()
+    API.getOm()
       .then(res =>
       
        this.setState({
@@ -50,7 +50,7 @@ class Mainstage extends Component {
       return(
         <React.Fragment>
           <Schedule>
-              <h1>Main Stage Bands</h1>
+              <h1>Om Dome Bands</h1>
           {this.state.bands.map(band=>(
           <Bandcards
          
@@ -70,4 +70,4 @@ class Mainstage extends Component {
   }
 }
 
-export default Mainstage;
+export default Om;
