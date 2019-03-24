@@ -1,5 +1,5 @@
 
 module.exports = {
-    mongoURI: "YOUR_MONGOURI_HERE",
+    mongoURI: "mongodb://localhost/shangrila",
     secretOrKey: "secret"
   };
