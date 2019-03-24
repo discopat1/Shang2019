@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 const Schedule = props => (
    
     <Container className="container-fluid" id="schedule">
-  
+    <div id="show-bands">
 
       
       <Row id="band-name">
@@ -16,7 +16,7 @@ const Schedule = props => (
         {props.children}
        
       </Row>
-
+    </div>
     </Container>
   
 )

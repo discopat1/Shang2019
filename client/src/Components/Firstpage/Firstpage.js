@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './Firstpage.css';
+import { Link } from 'react-router-dom';
+import API from "../../utils/API";
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Container from 'react-bootstrap/Container';
@@ -9,21 +11,14 @@ import Modal from 'react-bootstrap/Modal';
  //render from the on-click here??
 
 class Firstpage extends Component{
-    // state={
-    //     first_name: this.
-        
-    // }
-
-    // handleLogIn=(e)=>{
-        //SET THE STATE AS USER LOGGED IN
-    //     this.setState();
-
-    //     }
-    // handleSignUp=(e)=>{
-        
-    // }
+  state={
+      email:"",
+      password:"",
+  }
     
-
+// handleLogin=(e)=>{
+    
+// }
 
     render(){
         return(
@@ -37,9 +32,9 @@ class Firstpage extends Component{
             <p>Login below in order to access your myLineup</p>
             
             <Form>
-            <FormControl type="band" placeholder="Username" className="mr-sm-2"/>
-            <FormControl type="username" placeholder="Password" className="mr-sm-2"/>
-            <Button className="outline-primary" id="log-in-button"variant="outline-success" type="Login">Log In</Button>
+            <FormControl type="email" value="email" placeholder="Email" className="mr-sm-2"/>
+            <FormControl type="paspsword" value="password" placeholder="Password" className="mr-sm-2"/>
+            <Button className="outline-primary" id="log-in-button"variant="outline-success" type="Login" onClick={this.handleLogin}>Log In</Button>
             <Button className="outline-success" id="create-account-button"type= "password" variant="outline-primary">Create Account</Button>
             </Form>
             </div>

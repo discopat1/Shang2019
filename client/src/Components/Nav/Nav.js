@@ -153,10 +153,10 @@ render(){
             <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Stage Schedules</Dropdown.Toggle>
         <Dropdown.Menu>
-            <Link to="/main">Main Stage</Link> 
-            <Link to="/side">Side Stage</Link>
-            <Link to="/harmonium">Harmonium</Link>
-            <Link to="/om">Om Dome</Link>
+            <Link to="/main">Main Stage</Link><br/>
+            <Link to="/side">Side Stage</Link><br/>
+            <Link to="/harmonium">Harmonium</Link><br/>
+            <Link to="/om">Om Dome</Link><br/>
          </Dropdown.Menu>
         </Dropdown>
         

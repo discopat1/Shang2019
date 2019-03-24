@@ -5,12 +5,20 @@
   "main": "server.js",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "if-env": "^1.0.4",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
     "mongo": "^0.1.0",
     "mongojs": "^2.6.0",
     "mongoose": "^5.4.19",
     "morgan": "^1.9.1",
-    "if-env": "^1.0.4"
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

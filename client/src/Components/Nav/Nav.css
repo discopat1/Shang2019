@@ -28,6 +28,10 @@
     color: white;
 }
 
+.dropdown-menu{
+    flex-direction: column;
+    color:white !important;
+}
 
 
 .dropdown-menu{

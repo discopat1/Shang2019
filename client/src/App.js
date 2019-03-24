@@ -29,6 +29,7 @@ function App() {
       <React.Fragment>
         <Header />
         <Nav />
+        <Firstpage/>
         <div>
           <Switch>
           <Route exact path='/mylineup' component={myLineup} />
