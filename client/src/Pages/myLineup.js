@@ -1,4 +1,3 @@
-
 import React, {Component} from "react";
 import "./myLineup.css";
 import Schedule from '../Components/Schedule';
@@ -11,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import API from "../utils/API";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Input, TextArea, FormBtn } from "react-bootstrap/Form"
 
@@ -23,7 +23,8 @@ class myLineup extends Component{
         day: "",
         image: "",
         url: "",
-        bio: "",
+        bio: ""
+        
        
 
     };
@@ -33,7 +34,7 @@ class myLineup extends Component{
     }
 
     loadUserBands =() =>{
-        API.getUserbands()
+        API.getBands()
         .then(res =>
             this.setState({bands:res.data, stage:"", band:"", time:"", day: "", image:"", url:"",bio:""})
             )
@@ -51,15 +52,19 @@ render(){
     return(
         <React.Fragment>
         <Jumbotron>
-            <h2>myLineUp</h2>
-            <h4>Browse stages and bands on the left</h4>
-            <p>When you find a band you like, click "+ myLineUP to add their show to your list.</p>
-            <p>Share with friends to easily meet up to git down!</p>
+            <div className="mylineup-header">
+            <h2>myLineup</h2><FontAwesomeIcon icon="user-check"/>
+            <h6>See your shows!<br/> Easily Remove performers, or go look for new ones to check out.</h6><br/>
+            <p>Share with friends to meet up and git down!</p>
+            </div>
         </Jumbotron>
-        <Navigation/>
         <Container>
+           <div  id="all-bands-header">
+                <h2>My Shows</h2><br/>
+                <Button variant="outline-success btn-large">Share myLineup</Button>
+            </div>
         <Schedule>
-            {this.state.userbands.map(card =>(
+            {this.state.bands.map(card =>(
                 <Bandcards
                 key={card.id}
                 band={card.band}
@@ -69,10 +74,14 @@ render(){
                 image={card.image}
                 url={card.url}
                 bio={card.bio}
+                day={card.day}
                 />
+               
             ))}
             
         </Schedule>
+        
+      
         </Container>
         </React.Fragment>
     )

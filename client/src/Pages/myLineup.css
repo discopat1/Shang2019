@@ -1,6 +1,45 @@
 .jumbotron{
     background-color:black;
     display:flex;
-    width:80px;
-    color:lime;
+    width:80%;
+    color:black;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    font-size:18px;
+}
+.row{
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.container{
+    margin: 0 auto;
+    align-content: center;
+}
+
+
+.col-lg-6{
+    justify-content: center;
+    text-align: center;
+}
+.mylineup-header{
+    width:80%;
+    margin:0 auto;
+    background-color: white;
+    border: solid 2px;
+    border-color: teal;
+    text-align:center;
+
+}
+#all-bands-header{
+    color:hotpink;
+    text-emphasis: center;
+    margin-bottom:5px;
+    text-align: center;
+}
+
+#add-bands-header{
+    color: lime;
+    text-align: center;
 }

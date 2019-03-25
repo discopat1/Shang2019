@@ -27,8 +27,8 @@ class Firstpage extends Component{
             <h2>Welcome to your Shangri-La app! </h2>
             <h4>Browse stages above to find new, and favorite bands</h4>
             <p>First time user? Log in now to access myLineup</p>
-            <p>Swipe Right on a band you'd like to see, and we'll add it to your myLineup</p>
-            <p>myLineup is an interactive, shareable lineup of bands you don't want to miss!</p>
+            <p>Click "+" on any performer you'd like to see, and we'll add it to your myLineup</p>
+            <p>myLineup is an interactive, shareable lineup of shows you don't want to miss!</p>
             <p>Login below in order to access your myLineup</p>
             
             <Form>

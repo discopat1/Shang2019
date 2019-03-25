@@ -15,12 +15,12 @@ import API from "./utils/API";
 import Schedule from './Components/Schedule';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire, faUserTimes, faUserCheck} from '@fortawesome/free-solid-svg-icons';
 import Firstpage from './Components/Firstpage/Firstpage';
 import Mainstage from './Components/Mainstage/Mainstage';
 import Harmonium from './Components/Harmonium';
 import Om from './Components/Om';
-library.add(fab, faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire);
+library.add(fab, faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire, faUserTimes, faUserCheck);
 
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
       <React.Fragment>
         <Header />
         <Nav />
-        <Firstpage/>
         <div>
           <Switch>
           <Route exact path='/mylineup' component={myLineup} />

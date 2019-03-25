@@ -14,10 +14,9 @@ import API from "../../utils/API";
 
 
 class Navigation extends Component{
-  constructor(props) {
-    super(props);
+ 
 
-    this.state = {
+    state = {
       bands: [],
       stage: "",
       band: "",
@@ -25,11 +24,11 @@ class Navigation extends Component{
       day: "",
       image: "",
       url: "",
-      bio: ""
-  
+      bio: "",
+      search:""
     };
   
-  }
+  
 
 // loadMain= (props) =>{
 //   API.getMain()
@@ -112,9 +111,9 @@ class Navigation extends Component{
 
 
 
-// handleInputChange=(e) =>{
-//   this.setState({search:e.target.value})
-// }
+handleInputChange=(e) =>{
+  this.setState({search:e.target.value})
+}
 // handleFormSubmit=(e)=>{
 //   e.preventDefault();
 //   this.setState({search: e.target.value})
@@ -160,9 +159,9 @@ render(){
          </Dropdown.Menu>
         </Dropdown>
         
-           <Form inline onSubmit={this.handleFormSubmit}>
+           <Form inline>
             <FormControl type="band" placeholder="Search" className="mr-sm-2" onChange={this.handleInputChange} />
-            <Button variant="outline-primary" onClick={this.handleFormSubmit}>Search Bands</Button>
+            <Button variant="outline-primary">Search Bands</Button>
             
           </Form>
   </Navbar>
