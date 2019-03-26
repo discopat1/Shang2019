@@ -32,6 +32,7 @@ function App() {
         <div>
           <Switch>
           <Route exact path='/mylineup' component={myLineup} />
+          <Route exact path='/firstpage' component={Firstpage} />
           <Route exact path='/' component={Stage} />
           <Route exact path="/main" component={Mainstage} />
           <Route exact path="/side" component={Sidestage} />

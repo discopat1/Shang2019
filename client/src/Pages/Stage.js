@@ -1,5 +1,6 @@
 import React, { Component }from 'react';
 import Schedule from "../Components/Schedule";
+import Button from "react-bootstrap/Button";
 import Bandcards from "../Components/BandCards";
 import API from "../../src/utils/API";
 
@@ -16,8 +17,8 @@ class Stage extends Component {
         day: "",
         image: "",
         url: "",
-        bio: ""
-    
+        bio: "",
+        id: ""
       };
     }
   
@@ -26,7 +27,9 @@ class Stage extends Component {
     // When the component mounts, load all bands and save them to this.state.bands
     componentDidMount() {
         console.log("Stage loaded");
-      this.loadBands();
+      this.loadBands()
+
+    
     }
   
     // Loads all bands  and sets them to this.state.bands
@@ -42,9 +45,9 @@ class Stage extends Component {
           day:res.data.day,
           image:res.data.image,
           url:res.data.url,
-          bio:res.data.bio
+          bio:res.data.bio,
+          id: res.data.id
            })
-        
         )
         .catch(err => console.log(err));
   
@@ -66,8 +69,12 @@ class Stage extends Component {
             image={band.image}
             url={band.url}
             bio={band.bio}
+            
             />
+            
+
             ))}
+            
             </Schedule>
             </React.Fragment>
       );

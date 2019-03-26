@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Bandcards = props => (
   
   
+  
 <Card style={{ width: '18rem'}}>
   <Card.Img variant="top" src={props.image} />
   <Card.Body>
@@ -25,8 +26,7 @@ const Bandcards = props => (
   </Card.ImgOverlay>
   <Card.Footer id="footer">
     <Button className="btn-success btn-large" href={props.url}><FontAwesomeIcon icon="info-circle"/></Button>
-    <Button variant="outline-warning btn-large"><FontAwesomeIcon icon="user-times"/></Button>
-    <Button variant="outline-primary btn-large">+ myLineup</Button>
+    <Button variant="outline-primary btn-large"value={props.id}>+ myLineup</Button>
   </Card.Footer>
 </Card>
 

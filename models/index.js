@@ -1,4 +1,4 @@
 module.exports = {
     Bands: require("./banddata"),   
-     User: require("./users")
+     Users: require("./users")
   };

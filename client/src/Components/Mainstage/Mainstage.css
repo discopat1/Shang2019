@@ -1,4 +1,9 @@
-h2{
+h1{
     color: hotpink;
     font-size: 56px;
+}
+
+#stage-icon{
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/reactshang.appspot.com/o/main_stage_KT5_icon-fixed.ico?alt=media&token=f74a4bb5-7f53-4c14-88e8-b154f419b0e5");
+  
 }

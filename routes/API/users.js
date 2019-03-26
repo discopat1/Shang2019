@@ -1,10 +1,8 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys")
-
-
+const usersController= require("../../controllers/usersController");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
@@ -13,7 +11,9 @@ const User = require("../../models/users");
 // @route POST api/users/register
 // @desc Register user
 // @access Public
-
+router.route("/register/all")
+  .get(usersController.findAll)
+  
 router.post("/register", (req, res) => {
     // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);

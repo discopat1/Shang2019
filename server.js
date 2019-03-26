@@ -27,13 +27,14 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
-app.use("/API/users", users)
+app.use(users)
 
 
 // DB Config
 // const db = require("./config/keys").mongoURI;
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/shangrila");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/shangrila",{ useNewUrlParser:true})
+.then(console.log("Connected to Mongodb"));
 
 // Passport middleware
 app.use(passport.initialize());

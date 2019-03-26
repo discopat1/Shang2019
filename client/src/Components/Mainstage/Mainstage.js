@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import Schedule from "../Schedule";
 
 
+
 class Mainstage extends Component {
     constructor(props) {
       super(props);
@@ -49,8 +50,11 @@ class Mainstage extends Component {
   render(){
       return(
         <React.Fragment>
+          
           <Schedule>
-              <h1>Main Stage Bands</h1>
+          <div id="stage-icon"></div>
+              <h1>Main Stage Performers</h1>
+
           {this.state.bands.map(band=>(
           <Bandcards
          

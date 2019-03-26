@@ -71,7 +71,10 @@ export default {
   // Deletes the band with the given band id
   deleteBand: function(id) {
     return axios.delete("/api/bands/" + id);
-  }
- 
+  },
+//Get the user data
+getUser: function(id){
+  return axios.get("/api/users" + id);
+}
   
 };

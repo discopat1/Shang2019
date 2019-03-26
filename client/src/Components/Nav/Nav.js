@@ -145,8 +145,8 @@ render(){
           <Nav.Link href="/">Home</Nav.Link>
        </Nav.Item>
        <Nav.Item>
-             <Link to ="/mylineup">myLineup</Link>
-              <Nav.Link>Log in</Nav.Link>
+             <Link to ="/mylineup">myLineup</Link><br/>
+              <Link to="/firstpage">Log in</Link>
            </Nav.Item>
         <Dropdown>
             <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

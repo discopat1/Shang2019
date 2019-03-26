@@ -43,3 +43,49 @@
     color: lime;
     text-align: center;
 }
+.button{
+    margin-left: 10px !important;
+    
+}
+
+
+.card-title{
+    text-align: center;
+}
+.card-text{
+    display: flex 1;
+    flex-direction: column;
+    height:80px;
+    padding-top:2%;
+    overflow-y: auto;
+    text-align: center;
+    border-top: hotpink solid 2px;
+    /* border: black 2px solid; */
+}
+
+.card-img-overlay{
+    height:50px;
+    background-color:rgba(83, 83, 83, 0.7);
+    width: 100%;
+    color:hotpink;
+    text-align: center;
+    font-size:16px;
+    font-weight: 500;
+    
+    margin-top: 53%;
+}
+img{
+    height:200px;
+}
+
+#footer{
+    display:flex;
+   justify-content: space-between !important;
+   background-color:#343a40
+}
+.btn-primary-outline{
+    color: #007bff;
+    background-color: #343a40;
+    border-color: #007bff;
+    margin-left: 10px;
+}
