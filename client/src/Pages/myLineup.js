@@ -44,20 +44,23 @@ class myLineup extends Component {
             .catch(err => console.log(err));
     };
 
-    deleteBand = id => {
-        API.remove(id)
-            .then(res => this.loadBands())
-            .catch(err => console.log(err));
-    };
-
-    // handleMylineup=(e)=>{
-    //     console.log("This is the band ID I clicked", e.target.value)
-    // }
-    handleBandRemove= (e) =>{
-        API.deleteBand({id:e.target.value});
-        
+   async deleteBand (_id) {
+        await API.deleteBand(`/api/bands/${_id}`)
+        API.deleteBand=(_id) => {
+            let bandListCopy = this.state.bands // grab a copy of the current band list
+            for (let i = 0; i < bandListCopy.length; i++) {
+              let band = bandListCopy[i]
+              if (band.id === _id) {        // if it’s the correct ID...
+                bandListCopy.splice(i, 1)  // delete band item
+                break                      // we’re done! break the loop
+              }
+            }
+            this.setState({bands: bandListCopy}) // we update state with remaining bands
+          }
         
     }
+   
+       
     
 
     render() {
@@ -88,7 +91,7 @@ class myLineup extends Component {
                                 </Card.ImgOverlay>
                                 <Card.Footer>
                                     <Button className="btn-success btn-large" href={card.url}><FontAwesomeIcon icon="info-circle" /></Button>
-                                    <Button variant="outline-warning btn-large"value={card._id} onClick={this.handleBandRemove}>Remove Band</Button>
+                                    <Button variant="outline-warning btn-large" value={card._id} onClick={()=>this.deleteBand(card._id)}>Remove Band</Button>
                                 </Card.Footer>
                             </Card>
                         ))}

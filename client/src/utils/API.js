@@ -70,8 +70,8 @@ export default {
   },
   // Deletes the band with the given band id
   deleteBand: function (_id) {
-    console.log("DeleteBand function fired", _id)
-    return axios.delete("/api/bands/", _id);
+    console.log("DeleteBand function fired"+ _id)
+    return axios.delete("/api/bands/" + _id);
   },
   //Get the user data
   getUser: function (_id) {
