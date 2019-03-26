@@ -2,7 +2,6 @@ const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys")
-const usersController= require("../../controllers/usersController");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
@@ -11,13 +10,14 @@ const User = require("../../models/users");
 // @route POST api/users/register
 // @desc Register user
 // @access Public
-router.route("/register/all")
-  .get(usersController.findAll)
+
+
   
-router.post("/register", (req, res) => {
-    // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body);
-  // Check validation
+router
+  .post("/register", (req, res) => {
+          // Form validation
+   const { errors, isValid } = validateRegisterInput(req.body);
+        // Check validation
     if (!isValid) {
       return res.status(400).json(errors);
     }
@@ -47,22 +47,23 @@ router.post("/register", (req, res) => {
     // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/login", (req, res) => {
+router
+  .post("/login", (req, res) => {
   // Form validation
-const { errors, isValid } = validateLoginInput(req.body);
-// Check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-const email = req.body.email;
-  const password = req.body.password;
-// Find user by email
-  User.findOne({ email }).then(user => {
-    // Check if user exists
-    if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
+  const { errors, isValid } = validateLoginInput(req.body);
+  // Check validation
+    if (!isValid) {
+      return res.status(400).json(errors);
     }
-// Check password
+  const email = req.body.email;
+    const password = req.body.password;
+  // Find user by email
+    User.findOne({ email }).then(user => {
+      // Check if user exists
+      if (!user) {
+        return res.status(404).json({ emailnotfound: "Email not found" });
+      }
+  // Check password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         // User matched

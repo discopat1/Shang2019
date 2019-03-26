@@ -88,7 +88,7 @@ class myLineup extends Component {
                             <Card style={{ width: '18rem' }} key={card._id}>
                                 <Card.Img variant="top" src={card.image} />
                                 <Card.Body>
-                                    <Card.Title>{card.name}</Card.Title>
+                                    <Card.Title>{card.band}</Card.Title>
                                 </Card.Body>
                                 <Card.ImgOverlay>
                                     {card.day} | {card.time} | {card.stage}
