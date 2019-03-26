@@ -141,7 +141,8 @@ findOmSunday: function(req,res){
   },
   remove: function(req, res) {
     db.Bands
-      .findById({ _id: req.params.id })
+      .findOneAndDelete({ _id: req.params.id })
+      .then(console.log("bandscontroller fired", req.params.id))
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

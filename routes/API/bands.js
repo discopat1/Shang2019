@@ -74,7 +74,6 @@ router
 router
   .route("/:id")
   .get(bandsController.findById)
-  .put(bandsController.update)
   .delete(bandsController.remove);
 
 module.exports = router;

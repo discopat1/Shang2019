@@ -50,17 +50,14 @@ class myLineup extends Component {
             .catch(err => console.log(err));
     };
 
-    handleMylineup=(e)=>{
-        console.log("This is the band ID I clicked", e.target.value)
+    // handleMylineup=(e)=>{
+    //     console.log("This is the band ID I clicked", e.target.value)
+    // }
+    handleBandRemove= (e) =>{
+        API.deleteBand({id:e.target.value});
+        
+        
     }
-    handleRemove= (e) =>{
-        var array = [...this.state.bands]; // make a separate copy of the array
-        var index = array.indexOf(e.target.value)
-        if (index !== -1) {
-          array.splice(index, 1);
-          this.setState({bands: array});
-        }
-      }
     
 
     render() {
@@ -81,7 +78,7 @@ class myLineup extends Component {
                     <Schedule>
                         {this.state.bands.map(card => (
                             
-                            <Card style={{ width: '18rem' }} key={card.id}>
+                            <Card style={{ width: '18rem' }} key={card._id}>
                                 <Card.Img variant="top" src={card.image} />
                                 <Card.Body>
                                     <Card.Title>{card.name}</Card.Title>
@@ -91,8 +88,7 @@ class myLineup extends Component {
                                 </Card.ImgOverlay>
                                 <Card.Footer>
                                     <Button className="btn-success btn-large" href={card.url}><FontAwesomeIcon icon="info-circle" /></Button>
-                                    <Button variant="outline-warning btn-large" onClick={this.handleRemove}><FontAwesomeIcon icon="user-times" /></Button>
-                                    <Button variant="outline-primary btn-large" value={card._id} onClick={this.handleMylineup}> in myLineup</Button>
+                                    <Button variant="outline-warning btn-large"value={card._id} onClick={this.handleBandRemove}>Remove Band</Button>
                                 </Card.Footer>
                             </Card>
                         ))}
