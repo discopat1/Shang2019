@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Axios from 'axios';
 import "./myLineup.css";
 import "../Components/BandCards/Bandcards.css"
 import Schedule from '../Components/Schedule';
@@ -35,7 +36,9 @@ class myLineup extends Component {
     componentDidMount() {
         this.loadUserBands();
     }
-
+    componentDidUpdate(){
+        this.loadUserBands();
+    }
     loadUserBands = () => {
         API.getBands()
             .then(res =>
@@ -45,12 +48,13 @@ class myLineup extends Component {
     };
 
    async deleteBand (_id) {
-        await API.deleteBand(`/api/bands/${_id}`)
-        API.deleteBand=(_id) => {
+         Axios.delete(`/api/bands/${_id}`)
+        console.log("Here's the axios band id",_id)
+     
             let bandListCopy = this.state.bands // grab a copy of the current band list
             for (let i = 0; i < bandListCopy.length; i++) {
-              let band = bandListCopy[i]
-              if (band.id === _id) {        // if it’s the correct ID...
+              let newband = bandListCopy[i]
+              if (newband.id === _id) {        // if it’s the correct ID...
                 bandListCopy.splice(i, 1)  // delete band item
                 break                      // we’re done! break the loop
               }
@@ -58,7 +62,7 @@ class myLineup extends Component {
             this.setState({bands: bandListCopy}) // we update state with remaining bands
           }
         
-    }
+    
    
        
     
