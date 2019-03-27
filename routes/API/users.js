@@ -5,12 +5,18 @@ const keys = require("../../config/keys")
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const usersController = require("../../controllers/usersController");
+
 // Load User model
 const User = require("../../models/users");
 // @route POST api/users/register
 // @desc Register user
 // @access Public
 
+
+router
+  .route("/register/all")
+  .get(usersController.findAll)
 
   
 router

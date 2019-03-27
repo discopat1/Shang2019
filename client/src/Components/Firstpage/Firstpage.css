@@ -1,13 +1,11 @@
 #firstpage-main{
     /* background-image: url("https://shangrilafest.com/wp-content/uploads/2018/07/SkyCastle-Logo-800x622.png");  */
     width:80%;
-    height:500px;
+    margin-top:5px;
+    height:400px;
     display:flex;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
     margin: 0, auto;
-    margin-bottom:80px;
+    background-color:rgb(88, 86, 86);
 }
 .form-control{
     width:30%;

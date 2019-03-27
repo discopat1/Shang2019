@@ -3,8 +3,6 @@ import Axios from 'axios';
 import "./myLineup.css";
 import "../Components/BandCards/Bandcards.css"
 import Schedule from '../Components/Schedule';
-import Navigation from '../Components/Nav';
-import Bandcards from "../Components/BandCards";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

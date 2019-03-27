@@ -7,6 +7,7 @@ import Stage from './Pages/Stage';
 import Sidestage from './Components/Sidestage';
 import Bandcards from './Components/BandCards';
 import myLineup from './Pages/myLineup';
+import CreateAccount from './Components/CreateAccount';
 import "../src/Components/BandCards/Bandcards.css";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -32,8 +33,9 @@ function App() {
         <div>
           <Switch>
           <Route exact path='/mylineup' component={myLineup} />
-          <Route exact path='/firstpage' component={Firstpage} />
-          <Route exact path='/' component={Stage} />
+          <Route exact path='/' component={Firstpage} />
+          <Route exact path='/register' component={CreateAccount} />
+          <Route exact path='/search' component={Stage} />
           <Route exact path="/main" component={Mainstage} />
           <Route exact path="/side" component={Sidestage} />
           <Route exact path="/harmonium" component={Harmonium} />

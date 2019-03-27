@@ -142,11 +142,11 @@ render(){
       <Navbar className="bg-dark">
     
         <Nav.Item>
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/search">Home</Nav.Link>
        </Nav.Item>
        <Nav.Item>
              <Link to ="/mylineup">myLineup</Link><br/>
-              <Link to="/firstpage">Log in</Link>
+              <Link to="/">Log in</Link>
            </Nav.Item>
         <Dropdown>
             <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -160,8 +160,8 @@ render(){
         </Dropdown>
         
            <Form inline>
-            <FormControl type="band" placeholder="Search" className="mr-sm-2" onChange={this.handleInputChange} />
-            <Button variant="outline-primary">Search Bands</Button>
+            <FormControl type="band" placeholder="Search Bands" className="mr-sm-2" onChange={this.handleInputChange} />
+            <Button variant="outline-primary">Search</Button>
             
           </Form>
   </Navbar>
