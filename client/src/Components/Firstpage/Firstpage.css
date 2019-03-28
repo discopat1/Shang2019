@@ -5,7 +5,7 @@
     height:400px;
     display:flex;
     margin: 0, auto;
-    background-color:rgb(88, 86, 86);
+    background-color:black;
 }
 .form-control{
     width:30%;
@@ -21,6 +21,9 @@
     width: 100%;
 }
 
+#log-in-link{
+    color:lime;
+}
 
 .form{
     border: lime solid 2px;

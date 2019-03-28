@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Container from 'react-bootstrap/Container';
+
 
 
 
@@ -36,13 +38,8 @@ class CreateAccount extends Component {
     render(){
         const { errors } = this.state;
         return(
-           <div className="container" id="create-account-container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/search" className="btn-success">
-                 Back to
-              home
-            </Link>
+              <Container id="firstpage-main">
+                <div className="firstpage-content">
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
@@ -108,8 +105,8 @@ class CreateAccount extends Component {
               </div>
             </form>
           </div>
-        </div>
-      </div>
+        </Container>
+      
     );
   }
 }

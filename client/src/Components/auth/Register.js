@@ -3,7 +3,11 @@ import { Link,withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../actions/authActions";
+import '../Firstpage/Firstpage.css'
 import classnames from "classnames";
+import Container from 'react-bootstrap/Container';
+import Form from "react-bootstrap/Form";
+import Button from 'react-bootstrap/Button';
 
 
 class Register extends Component {
@@ -21,6 +25,7 @@ class Register extends Component {
     // If logged in and user navigates to Register page, should redirect them to mylineup
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/mylineup");
+      
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -47,22 +52,16 @@ const newUser = {
 render() {
     const { errors } = this.state;
 return (
-      <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-primary">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
+        <Container id="firstpage-main">
+        <div className="firstpage-content">
+                <h4>
                 <b>Register</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
+                Already have an account? <Link to="/login" id="log-in-link">Log in</Link>
               </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
+           
+            <Form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
@@ -70,11 +69,11 @@ return (
                   error={errors.name}
                   id="name"
                   type="text"
+                  placeholder="Full Name"
                   className={classnames("", {
                     invalid: errors.name
                   })}
                 />
-                <label htmlFor="name">Name</label>
                 <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
@@ -84,11 +83,12 @@ return (
                   error={errors.email}
                   id="email"
                   type="email"
+                  placeholder="Email"
                   className={classnames("", {
                     invalid: errors.email
                   })}
                 />
-                <label htmlFor="email">Email</label>
+               
                 <span className="red-text">{errors.email}</span>
               </div>
               <div className="input-field col s12">
@@ -98,11 +98,12 @@ return (
                   error={errors.password}
                   id="password"
                   type="password"
+                  placeholder="Password"
                   className={classnames("", {
                     invalid: errors.password
                 })}
                 />
-                <label htmlFor="password">Password</label>
+               
                 <span className="red-text">{errors.password}</span>
               </div>
               <div className="input-field col s12">
@@ -112,15 +113,16 @@ return (
                   error={errors.password2}
                   id="password2"
                   type="password"
+                  placeholder="Confirm Password"
                   className={classnames("", {
                     invalid: errors.password2
                   })}
                 />
-                <label htmlFor="password2">Confirm Password</label>
+           
                 <span className="red-text">{errors.password2}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
+                <Button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -131,12 +133,13 @@ return (
                   className="btn btn-large btn-primary"
                 >
                   Sign up
-                </button>
+                </Button>
               </div>
-            </form>
+            </Form>
           </div>
-        </div>
-      </div>
+        
+                
+      </Container>
     );
   }
 }

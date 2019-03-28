@@ -5,7 +5,10 @@ import { connect } from "react-redux";
 import { loginUser } from "../actions/authActions";
 import classnames from "classnames";
 import "./Login.css"
+import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Login extends Component {
   constructor() {
@@ -46,19 +49,14 @@ const userData = {
 render() {
     const { errors } = this.state;
 return (
-      <div className="container" id="login-container">
-        <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-primary">Back to home</Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Login</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/register">Register</Link>
-              </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
+            <Container id="firstpage-main">
+                <div className="firstpage-content">
+                    <h3><span className="not-bold">Welcome to your</span> Shangri-La <span className="not-bold">app</span>! </h3>
+                    <h5>Browse stages above to find new, and favorite bands</h5>
+                    <p>myLineup <FontAwesomeIcon icon="user-check"></FontAwesomeIcon>  is a personalized, shareable lineup of the shows you don't want to miss!</p>
+                    <p>Login below to access your myLineup</p>
+    
+            <Form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
@@ -66,11 +64,11 @@ return (
                   error={errors.email}
                   id="email"
                   type="email"
-                  className={classnames("", {
+                  placeholder="Email"
+                  className={classnames("mr-sm-2", {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email">Email</label>
                 <span className="red-text">
                   {errors.email}
                   {errors.emailnotfound}
@@ -83,11 +81,11 @@ return (
                   error={errors.password}
                   id="password"
                   type="password"
+                  placeholder="Password"
                   className={classnames("", {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password">Password</label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}
@@ -102,15 +100,18 @@ return (
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large btn-success"
+                  variant="outline-success"
                 >
                   Login
                 </Button>
+                <br/>
+                <br/>
+                <p>First time user? Create an account now to access myLineup  <FontAwesomeIcon icon="user-check"></FontAwesomeIcon></p>
+                <Link to="/register" className="btn btn-outline-primary" id="create-account-button">Create Account</Link> 
               </div>
-            </form>
+            </Form>
           </div>
-        </div>
-      </div>
+      </Container>
     );
   }
 }
