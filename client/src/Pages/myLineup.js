@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import Axios from 'axios';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../Components/actions/authActions";
 import "./myLineup.css";
 import "../Components/BandCards/Bandcards.css"
 import Schedule from '../Components/Schedule';
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import API from "../utils/API";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Input, TextArea, FormBtn } from "react-bootstrap/Form"
 
 
 class myLineup extends Component {
@@ -24,17 +24,20 @@ class myLineup extends Component {
         image: "",
         url: "",
         bio: "",
-        _id: ""
-
-
-
+        _id: "",
+        user:""
 
     };
+   
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+      };
 
     componentDidMount() {
         this.loadUserBands();
     }
-    componentDidUpdate(){
+    componentDidUpdate() {
         this.loadUserBands();
     }
     loadUserBands = () => {
@@ -45,34 +48,48 @@ class myLineup extends Component {
             .catch(err => console.log(err));
     };
 
-   async deleteBand (_id) {
-         Axios.delete(`/api/bands/${_id}`)
-        console.log("Here's the axios band id",_id)
-     
-            let bandListCopy = this.state.bands // grab a copy of the current band list
-            for (let i = 0; i < bandListCopy.length; i++) {
-              let newband = bandListCopy[i]
-              if (newband.id === _id) {        // if it’s the correct ID...
+    async deleteBand(_id) {
+        Axios.delete(`/api/bands/${_id}`)
+        console.log("Here's the axios band id", _id)
+
+        let bandListCopy = this.state.bands // grab a copy of the current band list
+        for (let i = 0; i < bandListCopy.length; i++) {
+            let newband = bandListCopy[i]
+            if (newband.id === _id) {        // if it’s the correct ID...
                 bandListCopy.splice(i, 1)  // delete band item
                 break                      // we’re done! break the loop
-              }
             }
-            this.setState({bands: bandListCopy}) // we update state with remaining bands
-          }
-        
-    
-   
-       
-    
+        }
+        this.setState({ bands: bandListCopy }) // we update state with remaining bands
+    }
+
+
+
+
+
 
     render() {
+    //  const { user } = this.props.auth;
         return (
             <React.Fragment>
                 <Jumbotron>
                     <div className="mylineup-header">
-                        <h2>myLineup</h2><FontAwesomeIcon icon="user-check" />
+                        <h2> Welcome to myLineup!</h2><FontAwesomeIcon icon="user-check" />
                         <h6>See your shows!<br /> Easily Remove performers, or go look for new ones to check out.</h6><br />
                         <p>Share with friends to meet up and git down!</p>
+                        <Button
+                        style={{
+                            width: "150px",
+                            borderRadius: "3px",
+                            letterSpacing: "1.5px",
+                            marginTop: "1rem"
+                        }}
+                        onClick={this.onLogoutClick}
+                        className="btn btn-large-primary"
+                        >
+                        Logout
+                        </Button>
+                       
                     </div>
                 </Jumbotron>
                 <Container>
@@ -82,7 +99,7 @@ class myLineup extends Component {
                     </div>
                     <Schedule>
                         {this.state.bands.map(card => (
-                            
+
                             <Card style={{ width: '18rem' }} key={card._id}>
                                 <Card.Img variant="top" src={card.image} />
                                 <Card.Body>
@@ -93,7 +110,7 @@ class myLineup extends Component {
                                 </Card.ImgOverlay>
                                 <Card.Footer>
                                     <Button className="btn-success btn-large" href={card.url}><FontAwesomeIcon icon="info-circle" /></Button>
-                                    <Button variant="outline-warning btn-large" value={card._id} onClick={()=>this.deleteBand(card._id)}>Remove Band</Button>
+                                    <Button variant="outline-warning btn-large" value={card._id} onClick={() => this.deleteBand(card._id)}>Remove Band</Button>
                                 </Card.Footer>
                             </Card>
                         ))}
@@ -109,11 +126,19 @@ class myLineup extends Component {
 
 }
 
+myLineup.propTypes = {
+    logoutUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps,
+    { logoutUser }
+  )(myLineup);
 
 
-
-
-export default myLineup;
 
 
 

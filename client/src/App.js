@@ -1,40 +1,73 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+//User Auth
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
+import { setCurrentUser, logoutUser } from "./Components/actions/authActions";
+import PrivateRoute from "./Components/private-route/PrivateRoute";
+//Redux-state management
+import { Provider } from "react-redux";
+import store from "./store";
+
+//CSS
+import './App.css';
+
+//Components
+
 import Header from './Components/Header';
 import Nav from './Components/Nav';
 import Stage from './Pages/Stage';
-import Sidestage from './Components/Sidestage';
-import Bandcards from './Components/BandCards';
-import myLineup from './Pages/myLineup';
-import CreateAccount from './Components/CreateAccount';
-import "../src/Components/BandCards/Bandcards.css";
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import API from "./utils/API";
-import Schedule from './Components/Schedule';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire, faUserTimes, faUserCheck} from '@fortawesome/free-solid-svg-icons';
 import Firstpage from './Components/Firstpage/Firstpage';
 import Mainstage from './Components/Mainstage/Mainstage';
 import Harmonium from './Components/Harmonium';
 import Om from './Components/Om';
+import Sidestage from './Components/Sidestage';
+import Register from "./Components/auth/Register";
+import Login from "./Components/auth/Login";
+import Bandcards from './Components/BandCards';
+import myLineup from './Pages/myLineup';
+import CreateAccount from './Components/CreateAccount';
+import "../src/Components/BandCards/Bandcards.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire, faUserTimes, faUserCheck} from '@fortawesome/free-solid-svg-icons';
+
 library.add(fab, faCheckSquare, faCoffee, faInfoCircle, faHeart, faFire, faUserTimes, faUserCheck);
 
 
+// Check for token to keep user logged in
+if (localStorage.jwtToken) {
+  // Set auth token header auth
+  const token = localStorage.jwtToken;
+  setAuthToken(token);
+  // Decode token and get user info and exp
+  const decoded = jwt_decode(token);
+  // Set user and isAuthenticated
+  store.dispatch(setCurrentUser(decoded));
+// Check for expired token
+  const currentTime = Date.now() / 1000; // to get in milliseconds
+  if (decoded.exp < currentTime) {
+    // Logout user
+    store.dispatch(logoutUser());
+    // Redirect to login
+    window.location.href = "./login";
+  }
+}
+
 function App() {
   return (
+    <Provider store={store}>
     <Router>
       <React.Fragment>
         <Header />
         <Nav />
         <div>
           <Switch>
-          <Route exact path='/mylineup' component={myLineup} />
+          <PrivateRoute exact path='/mylineup' component={myLineup} />
           <Route exact path='/' component={Firstpage} />
-          <Route exact path='/register' component={CreateAccount} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
           <Route exact path='/search' component={Stage} />
           <Route exact path="/main" component={Mainstage} />
           <Route exact path="/side" component={Sidestage} />
@@ -44,6 +77,7 @@ function App() {
         </div>
       </React.Fragment>
     </Router>
+    </Provider>
 
 
   );

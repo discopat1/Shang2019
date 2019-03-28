@@ -1,4 +1,6 @@
+
 import React, { Component } from 'react';
+import Axios from 'axios';
 import './Firstpage.css';
 import { Link } from 'react-router-dom';
 import API from "../../utils/API";
@@ -39,7 +41,6 @@ class Firstpage extends Component {
                     <p>First time user? Log in now to access myLineup  <FontAwesomeIcon icon="user-check"></FontAwesomeIcon></p>
                     <p>myLineup is a personalized, shareable lineup of the shows you don't want to miss!</p>
                     <p>Login below in order to access your myLineup</p>
-
                     <Form noValidate onSubmit={this.onSubmit}>
                         <input onChange={this.onChange}
                             value={this.state.email}
@@ -61,10 +62,8 @@ class Firstpage extends Component {
                         <Link to="/register" className="btn btn-outline-primary" id="create-account-button">Create Account</Link>
                     </Form>
                 </div>
-
             </Container>
         );
     }
 }
-
 export default Firstpage;
