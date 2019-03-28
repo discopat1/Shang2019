@@ -65,7 +65,7 @@ function App() {
         <div>
           <Switch>
           <PrivateRoute exact path='/mylineup' component={myLineup} />
-          <Route exact path='/' component={Firstpage} />
+          <Route exact path='/' component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path='/search' component={Stage} />
