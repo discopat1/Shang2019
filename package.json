@@ -30,6 +30,7 @@
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
@@ -38,7 +39,7 @@
     "type": "git",
     "url": "git+https://github.com/CodingAshley1983/Shang2019.git"
   },
-  "author": "",
+  "author": "Ashley Hurlburt",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CodingAshley1983/Shang2019/issues"
