@@ -57,7 +57,7 @@ class Stage extends Component {
       return (
           <React.Fragment>
             <div id="schedule-head">The Full Lineup
-              <h4>Click "+ myLineup" to add any band to your personalized lineup!</h4>
+              <h5>Click "+ myLineup" to add any band to your personalized lineup!</h5>
             </div>
             <Schedule>
             {this.state.bands.map(band=>(

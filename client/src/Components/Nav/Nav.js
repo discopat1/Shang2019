@@ -28,7 +28,7 @@ class Navigation extends Component{
       search:""
     };
   
-  
+ 
 
 // loadMain= (props) =>{
 //   API.getMain()

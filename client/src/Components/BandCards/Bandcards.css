@@ -24,12 +24,15 @@
     flex-direction: column;
     height:80px;
     padding-top:2%;
-    overflow-y: auto;
+    overflow-y: auto !important;
     text-align: center;
     border-top: hotpink solid 2px;
+
     /* border: black 2px solid; */
 }
-
+p{
+    color:black !important;
+}
 .card-img-overlay{
     height:50px;
     background-color:rgba(83, 83, 83, 0.7);

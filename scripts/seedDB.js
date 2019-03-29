@@ -18,7 +18,7 @@ mongoose.connect(
             "day": "Friday",
             "image": "http://nahko.com/wp-content/uploads/2017/09/nahko-slider-with-title.jpg",
             "url": "http://nahko.com/home/",
-            "bio": "Musical Medicine"
+            "bio": "Nahko, an Oregon-native born a mix of Puerto Rican, Native American, and Filipino bloodlines considers himself a citizen in service to the planet. Disillusioned by the world around him and inspired by vagabond, Americana musicians and storytellers like Conor Oberst and Bob Dylan, Nahko left home as a teenager in search of adventure and self discovery. Armed with stories, a guitar, and a fierce set of ideals, he set out to bridge the cultural gaps dividing his own psyche. He began producing a public, musical journal of his journey toward personal, spiritual, and social healing, and thus Medicine for the People was born. Recently, Nahko discussed his successes, his philosophies, his music, and his life with Huffington Post, who called Nahko’s music “beautiful and stirring.” Nahko describes his music as a mix of hip-hop and folk rock with a world message."
         },
         {
            
@@ -28,7 +28,7 @@ mongoose.connect(
             "day": "Saturday",
             "image": "https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/156417_10151264975545491_1167583631_n.jpg?_nc_cat=106&_nc_ht=scontent-dfw5-1.xx&oh=197e65446fd81dc72b5f1f13ed20e828&oe=5CE17745",
             "url": "http://www.wookiefoot.com",
-            "bio": "If your imagination threw up on stage and started writing music"
+            "bio": "Wookiefoot is a band, a 501C3 Non-Profit Charity Organization, a circus, a philosophy, and a community of globe trekking bliss junkies and believers that are the fuel to keep this Tribadelic Spaceship going! Their charity organization (with the support of their community) has donated over $500,000 to third world relief efforts. Wookiefoot’s live sets are an always inspiring and entertaining barrage of sonic and visual stimulation. The fast-paced circus-like set has been called “Short Attention Span Musical Theater”. These live performances are a one of a kind experience that mixes Reggae, World Beat, Hip Hop, Irish, Funk, Folk, Rock & more with a large band featuring everything from a vintage Hammond Organ to Bag Pipes! Combine that with a mind-blowing stage show that may include anything (such as a light show, projection, costumes, fire, dancers, aerialists, magic, clowns, puppets, etc)… and you better buckle up!"
         },
         {
            
@@ -38,7 +38,7 @@ mongoose.connect(
             "day": "Friday",
             "image": "https://selloutapp.storage.googleapis.com/image/event/dirtwire.jpeg",
             "url": "http://www.dirtwire.com",
-            "bio": "Crazy, badass music"
+            "bio": "Dirtwire sits on the back porch of Americana’s future, conjuring up a whirlwind of sound using traditional instrumentation, world percussion, soundscapes, and electronic beats. Comprised of David Satori (Beats Antique), Evan Fraser (The Dogon Lights; Bolo), and Mark Reveley (Jed and Lucia), each performance brings us all to a mysterious crossroads of beats, blues, African, Asian, and South American sounds. The result is a rebirth of Americana and a post-millennial psychedelic journey to down home goodness."
         },
         {
             
@@ -381,29 +381,8 @@ mongoose.connect(
   .then(() => db.Bands.collection.insertMany(bandSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
-  
+    process.exit(0);
   })
-  const userSeed = [
-    {
-        "name":"Ashley Hurlburt",
-        "email":"ladynirvana@hotmail.com",
-        "password":"Sterling1"
-    },
-    {
-      "name": "Bob",
-      "email":"bob@bob.com",
-      "password":"bobby"  
-    }
-
-   ];
-   console.log("end of the user data", db.Users)
-   db.Users
-   .remove({})
-    .then(() => db.Users.collection.insertMany(userSeed))
-    .then(data => {
-      console.log(data.result.n + " records inserted!");
-      process.exit(0);
-    })
     .catch(err => {
       console.error(err);
       process.exit(1);
