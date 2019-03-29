@@ -1,5 +1,6 @@
 
 module.exports = {
-    mongoURI: "mongodb://heroku_1k9922gz:Sterling1983!@ds117846.mlab.com:17846/heroku_1k9922gz",
-    secretOrKey: "secret"
+    mongoURI: "mongodb://heroku_1k9922gz:Sterling1@ds117846.mlab.com:17846/heroku_1k9922gz",
+    secretOrKey: SEsC4z-bTJ_tyTPDOCmY9dolr4WuwKEu
+    
   };
