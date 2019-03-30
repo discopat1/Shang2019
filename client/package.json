@@ -1,6 +1,5 @@
 {
   "name": "react-shang",
-  "homepage": "http://CodingAshley1983.github.io/Shang2019",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
