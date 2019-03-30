@@ -69,7 +69,7 @@ function App() {
           <Route exact path='/' component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path='/search' component={Stage} />
+          <Route path='/search' component={Stage} />
           <Route exact path="/main" component={Mainstage} />
           <Route exact path="/side" component={Sidestage} />
           <Route exact path="/harmonium" component={Harmonium} />

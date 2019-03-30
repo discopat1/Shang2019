@@ -1,6 +1,5 @@
 import React, { Component }from 'react';
 import Schedule from "../Components/Schedule";
-import Button from "react-bootstrap/Button";
 import Bandcards from "../Components/BandCards";
 import API from "../../src/utils/API";
 
@@ -62,7 +61,7 @@ class Stage extends Component {
             <Schedule>
             {this.state.bands.map(band=>(
             <Bandcards
-           
+            key={band.id}
             band={band.band}
             stage={band.stage}
             id={band.id}

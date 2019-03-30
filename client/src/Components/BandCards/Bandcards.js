@@ -12,7 +12,7 @@ const Bandcards = props => (
   
   
   
-<Card style={{ width: '18rem'}}>
+<Card style={{ width: '18rem'}} key={props.id}>
   <Card.Img variant="top" src={props.image} />
   <Card.Body>
     <Card.Title>{props.band}</Card.Title>

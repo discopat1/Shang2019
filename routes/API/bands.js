@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bandsController = require("../../controllers/bandsController");
 
 // Matches with "/api/bands"
-router.route("/")
+router.route("/search")
   .get(bandsController.findAll)
   
 router

@@ -56,7 +56,7 @@ class Mainstage extends Component {
               <h1>Main Stage Performers</h1>
 
           {this.state.bands.map(band=>(
-          <Bandcards
+          <Bandcards key={band.id}
          
           band={band.band}
           stage={band.stage}
