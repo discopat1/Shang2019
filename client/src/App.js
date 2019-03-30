@@ -7,10 +7,11 @@ import { setCurrentUser, logoutUser } from "./Components/actions/authActions";
 import PrivateRoute from "./Components/private-route/PrivateRoute";
 //Redux-state management
 import { Provider } from "react-redux";
+import "./App.css";
 import store from "./store";
 
 //CSS
-import './App.css';
+
 
 //Components
 
