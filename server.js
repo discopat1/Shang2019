@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
-app.use(users)
+
 
 
 // DB Config
