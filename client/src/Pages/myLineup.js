@@ -3,6 +3,7 @@ import Axios from 'axios';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../Components/actions/authActions";
+import{ getUser} from "../Components/actions/authActions";
 import "./myLineup.css";
 import "../Components/BandCards/Bandcards.css"
 import Schedule from '../Components/Schedule';
@@ -16,6 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 class myLineup extends Component {
+    
     state = {
         bands: [],
         band: "",
@@ -25,9 +27,10 @@ class myLineup extends Component {
         url: "",
         bio: "",
         _id: "",
-        user:""
+        userId:""
 
     };
+
    
     onLogoutClick = e => {
         e.preventDefault();
@@ -35,11 +38,16 @@ class myLineup extends Component {
       };
 
     componentDidMount() {
-        this.loadUserBands();
+        const userId= this.props.auth.user.id
+        if(this.props.auth.isAuthenticated){
+            this.setState({
+                userId:userId,})
+            console.log("this is the userid", userId)
+        }
     }
-    componentDidUpdate() {
-        this.loadUserBands();
-    }
+    // componentDidUpdate() {
+    //     this.loadUserBands();
+    // }
     loadUserBands = () => {
         API.getBands()
             .then(res =>
@@ -69,12 +77,12 @@ class myLineup extends Component {
 
 
     render() {
-    //  const { user } = this.props.auth;
+     const { user } = this.props.auth;
         return (
             <React.Fragment>
                 <Jumbotron>
                     <div className="mylineup-header">
-                        <h2> Welcome to myLineup!</h2><FontAwesomeIcon icon="user-check" />
+                        <h2> Welcome, {user.name} to myLineup!</h2><FontAwesomeIcon icon="user-check" />
                         <h6>See your shows!<br /> Easily Remove performers, or go look for new ones to check out.</h6><br />
                         <p>Share with friends to meet up and git down!</p>
                         <Button

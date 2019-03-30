@@ -4,8 +4,13 @@ import jwt_decode from "jwt-decode";
 import {
   GET_ERRORS,
   SET_CURRENT_USER,
-  USER_LOADING
+  USER_LOADING,
+  GET_USER_DATA
+
 } from "./types";
+
+
+
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
@@ -18,6 +23,9 @@ export const registerUser = (userData, history) => dispatch => {
       })
     );
 };
+
+
+
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
@@ -40,6 +48,19 @@ export const loginUser = userData => dispatch => {
         payload: err.response.data
       })
     );
+};
+
+//Get userData
+export const getUser= userData=> dispatch =>{
+  axios
+  .get("/api/users/login",userData)
+  .then(console.log("Here's the user id from authActions:", userData.id))
+  .catch(err =>
+    dispatch({
+      type: GET_USER_DATA,
+      payload: err.response.data
+    })
+  );
 };
 // Set logged in user
 export const setCurrentUser = decoded => {

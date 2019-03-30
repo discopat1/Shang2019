@@ -381,13 +381,81 @@ mongoose.connect(
   .then(() => db.Bands.collection.insertMany(bandSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-    .catch(err => {
-      console.error(err);
-      process.exit(1);
-    });
-  
+  });
+    const userSeed = [
+        {
+            "name":"Ashley Hurlburt",
+            "email":"ladynirvana@hotmail.com",
+            "password":"Sterling1",
+            "bands":[
+                {
+                "stage": "Om Dome",
+                "band": "Riconekt",
+                "time": "7:30pm",
+                "day": "Friday",
+                "image": "https://static.wixstatic.com/media/38b2fc_54d05b0df7f94cf392731cd9bfe579cf~mv2.jpg/v1/fill/w_393,h_264,al_c,q_80,usm_0.66_1.00_0.01/38b2fc_54d05b0df7f94cf392731cd9bfe579cf~mv2.webp",
+                "url": "https://www.facebook.com/Riconekt/",
+                "bio": " I am an activist, artist, & Lyracist striving to bring EMPOWERING words to the people. I Rap, sing, beatbox, & play the ukulele with a variety of musicians. I've been traveling almost a decade sharing my conscious flowetry with the world."
+                },
+                {
+           
+                    "stage": "Om Dome",
+                    "band": "Chase Ingraham",
+                    "time": "2:30pm",
+                    "day": "Friday",
+                    "image": "https://static.wixstatic.com/media/38b2fc_013ec19f483e4c74a74b4c2c2c2c5f2c~mv2_d_1221_1221_s_2.jpg/v1/fill/w_393,h_264,al_c,q_80,usm_0.66_1.00_0.01/38b2fc_013ec19f483e4c74a74b4c2c2c2c5f2c~mv2_d_1221_1221_s_2.webp",
+                    "url": "https://www.facebook.com/chaseingrahammusic/",
+                    "bio": "I’m 16 year old percussive fingerstyle guitarist from Minneapolis, MN - currently based out of Northfield, MN. Active hug lover, festival goer, musical medicine maker. I have music released on iTunes, Spotify, Amazon, Google Play, and all other major outlets! I am the Vice President of the Northfield Union of Youth, the longest standing youth-made, youth-ran center in the country, fundraising through music which has always been part of the culture for the kids there. "
+                 }
+
+            ]
+        },
+        {
+          "name": "Bob",
+          "email":"bob@bob.com",
+          "password":"bobby",
+          "bands":[
+            {
+            
+                "stage": "Harmonium",
+                "band": "Earth to Clark",
+                "time": "4:30pm",
+                "day": "Friday",
+                "image": "https://shangrilafest.com/wp-content/uploads/2019/03/Earth-to-clark.jpg",
+                "url": "https://www.earthtoclark.com/",
+                "bio": "Earth to Clark seeks to remedy conflict by promoting peace and spreading messages of love and unity, particularly in places and spaces that need it most. What began as Gasser playing music and writing songs has evolved into a vision shared by all five current band members. The band formed organically over time, beginning with Gasser and former member Gregory Boyer in 2014. Collaboration with drummer Mark Atkinson and vocalist Ariana Hartgraves came next. Followed by Zak Radewan on percussion/keys, and finally Eric Timmcke on bass."
+             },
+             
+            {
+                
+                "stage": "Side",
+                "band": "Spare Change Trio",
+                "time": "2:00pm",
+                "day": "Friday",
+                "image": "https://shangrilafest.com/wp-content/uploads/2018/07/sparechangetrio.jpg",
+                "url": "http://www.sparechangetrio.com/",
+                "bio": "This Milwaukee-based group, known largely for their eclectic live performances that incorporate the Australian didgeridoo into flowing soundscapes of reggae, funk, and jazz-fusion, consistently leave audiences wanting more. Deeply rooted in the positive message of reggae music, the band has grown to realize their calling: to spread peace, love, and harmony… while laying down an infectious groove."
+             }
+        
+                  
+          ]
+        }
+    
+       ];
+    
+       console.log("end of the user data", db.Users)
+       db.Users
+       .remove({})
+        .then(() => db.Users.collection.insertMany(userSeed))
+        .then(data => {
+          console.log(data.result.n + " records inserted!");
+          process.exit(0);
+        })
+        .catch(err => {
+          console.error(err);
+          process.exit(1);
+        });
+      
 
 
 

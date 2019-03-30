@@ -18,6 +18,8 @@ router
   .route("/register/all")
   .get(usersController.findAll)
 
+
+
   
 router
   .post("/register", (req, res) => {
