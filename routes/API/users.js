@@ -23,6 +23,10 @@ router
   .route("/register/all/:id")
   .get(usersController.findById)
 
+router
+.route("/register/all/:id/bands")
+.get(usersController.userBands)
+
   
 router
   .post("/register", (req, res) => {

@@ -2,7 +2,6 @@ import React from "react";
 import "./Bandcards.css";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -26,7 +25,7 @@ const Bandcards = props => (
   </Card.ImgOverlay>
   <Card.Footer id="footer">
     <Button className="btn-success btn-large" href={props.url}><FontAwesomeIcon icon="info-circle"/></Button>
-    <Button variant="outline-primary btn-large" value={props._id}>+ myLineup</Button>
+    <Button variant="outline-primary btn-large" value={props._id} onClick={() => props.stageFunc.addBand(props._id)}>+ myLineup</Button>
   </Card.Footer>
 </Card>
 

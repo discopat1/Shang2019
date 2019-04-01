@@ -18,7 +18,7 @@ module.exports = {
     },
     userBands: function(req, res){
       db.Users
-          .findById(req.params.id)
+          .find({userBands:{}})
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       

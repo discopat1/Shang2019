@@ -76,8 +76,8 @@ export default {
     return axios.get("/api/users/register/all", id);
   },
   //Get user's favorited bands for myLineup
-  getuserBand: function (id) {
-    return axios.get("/api/users/register/all"+ id+"/bands");
+  getuserBands: function (id) {
+    return axios.get("/api/users/register/all", id +"/bands");
   },
   // Deletes the band with the given band id
   deleteBand: function (_id) {

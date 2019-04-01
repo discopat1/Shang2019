@@ -60,10 +60,12 @@ class myLineup extends Component {
             .catch(err => console.log(err));
     };
 
+    
+
     //******THIS NEEDS TO FUNCTION ON USER's BAND ARRAY */
-    // async deleteBand(_id) {
-    //     Axios.delete(`/api/bands/${_id}`)
-    //     console.log("Here's the axios band id", _id)
+    async deleteBand(_id) {
+        Axios.delete(`/api/bands/${_id}`)
+        console.log("Here's the axios band id", _id)
 
     //     let bandListCopy = this.state.bands // grab a copy of the current band list
     //     for (let i = 0; i < bandListCopy.length; i++) {
@@ -74,7 +76,7 @@ class myLineup extends Component {
     //         }
     //     }
     //     this.setState({ bands: bandListCopy }) // we update state with remaining bands
-    // }
+    }
 
 
 

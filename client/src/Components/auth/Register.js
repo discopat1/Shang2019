@@ -24,7 +24,7 @@ class Register extends Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to mylineup
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/mylineup");
+      this.props.history.push("/search", "/mylineup","/main","/om","/side","/harmonium");
       
     }
   }
