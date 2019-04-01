@@ -4,7 +4,7 @@ export default {
   // Gets all bands
 
   getBands: function () {
-    return axios.get("/api/bands");
+    return axios.get("/api/bands/");
   },
   getMain: function () {
     return axios.get("/api/bands/main");
@@ -60,22 +60,33 @@ export default {
 
 
 
-  // Gets the book with the given id
+  // Gets the band with the given id
   getBand: function (id) {
     return axios.get("/api/bands/" + id);
   },
+
+  //Get all users
+
+  getUsers: function(){
+    return axios.get("/api/users/register/all")
+  },
+  //Get the user by ID
+
+  getUser: function(id){
+    return axios.get("/api/users/register/all", id);
+  },
   //Get user's favorited bands for myLineup
   getuserBand: function (id) {
-    return axios.get("/api/bands/"+ id+"/bands");
+    return axios.get("/api/users/register/all"+ id+"/bands");
   },
   // Deletes the band with the given band id
   deleteBand: function (_id) {
     console.log("DeleteBand function fired"+ _id)
     return axios.delete("/api/bands/" + _id);
-  },
-  //Get the user data
-  getUser: function (_id) {
-    return axios.get("/api/users" + _id);
   }
+  // //Get the user data
+  // getUser: function (_id) {
+  //   return axios.get("/api/users" + _id);
+  // }
 
 };

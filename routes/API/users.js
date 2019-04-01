@@ -7,6 +7,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const usersController = require("../../controllers/usersController");
 
+
 // Load User model
 const User = require("../../models/users");
 // @route POST api/users/register
@@ -18,7 +19,9 @@ router
   .route("/register/all")
   .get(usersController.findAll)
 
-
+router
+  .route("/register/all/:id")
+  .get(usersController.findById)
 
   
 router

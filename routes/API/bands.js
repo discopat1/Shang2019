@@ -71,9 +71,9 @@ router
 
 
 // Matches with "/api/bands/:id"
-// router
-//   .route("/:id")
-//   .get(bandsController.findById)
-//   .delete(bandsController.remove);
+router
+  .route("/:id")
+  .get(bandsController.findById)
+  .delete(bandsController.remove);
 
 module.exports = router;

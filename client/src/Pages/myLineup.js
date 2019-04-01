@@ -41,35 +41,40 @@ class myLineup extends Component {
         const userId= this.props.auth.user.id
         if(this.props.auth.isAuthenticated){
             this.setState({
-                userId:userId,})
+                userId:userId,
+                
+            })
             console.log("this is the userid", userId)
+            // this.loadbands()
         }
     }
+
     // componentDidUpdate() {
-    //     this.loadUserBands();
+    //     this.loadBands();
     // }
-    loadUserBands = () => {
+    loadBands = () => {
         API.getBands()
             .then(res =>
-                this.setState({ bands: res.data, stage: "", band: "", time: "", day: "", image: "", url: "", bio: "", _id: "" })
+                this.setState({ bands: res.data, stage: "", band: "", time: "", day: "", image: "", url: "", bio: "", _id: ""})
             )
             .catch(err => console.log(err));
     };
 
-    async deleteBand(_id) {
-        Axios.delete(`/api/bands/${_id}`)
-        console.log("Here's the axios band id", _id)
+    //******THIS NEEDS TO FUNCTION ON USER's BAND ARRAY */
+    // async deleteBand(_id) {
+    //     Axios.delete(`/api/bands/${_id}`)
+    //     console.log("Here's the axios band id", _id)
 
-        let bandListCopy = this.state.bands // grab a copy of the current band list
-        for (let i = 0; i < bandListCopy.length; i++) {
-            let newband = bandListCopy[i]
-            if (newband.id === _id) {        // if it’s the correct ID...
-                bandListCopy.splice(i, 1)  // delete band item
-                break                      // we’re done! break the loop
-            }
-        }
-        this.setState({ bands: bandListCopy }) // we update state with remaining bands
-    }
+    //     let bandListCopy = this.state.bands // grab a copy of the current band list
+    //     for (let i = 0; i < bandListCopy.length; i++) {
+    //         let newband = bandListCopy[i]
+    //         if (newband.id === _id) {        // if it’s the correct ID...
+    //             bandListCopy.splice(i, 1)  // delete band item
+    //             break                      // we’re done! break the loop
+    //         }
+    //     }
+    //     this.setState({ bands: bandListCopy }) // we update state with remaining bands
+    // }
 
 
 

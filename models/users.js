@@ -17,9 +17,11 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }, 
-  userBands:{
-    type:Array,
-  }
+  },
+  userBands:[{
+    type: Schema.Types.ObjectId,
+			ref: "bands"
+  }]
+
 });
 module.exports = User = mongoose.model("Users", UserSchema);
