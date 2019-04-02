@@ -47,7 +47,7 @@ class myLineup extends Component {
             console.log("this is the userid", userId)
             
         } 
-         
+        this.loadUserBands();
     }
 
     componentDidUpdate() {
@@ -61,7 +61,7 @@ class myLineup extends Component {
         API.getUserBands(userId)
                 
             .then(res =>
-                this.setState({ bands:res.users.data.userBands})
+                this.setState({ bands:res.data[0].userBands})
                 
             )
             .catch(err => console.log(err));
@@ -71,21 +71,21 @@ class myLineup extends Component {
 
     // THIS NEEDS TO FUNCTION ON USER's BAND ARRAY
 
-    // async deleteBand(_id) {
-    //     const userId= this.props.auth.user.id
-    //     Axios.deleteBand(userId,_id)
-    //     console.log("Here's the axios band id", _id)
+    async deleteBand(_id) {
+        const userId= this.props.auth.user.id
+        Axios.deleteBand(userId,_id)
+        console.log("Here's the axios band id", _id)
 
-    //     let bandListCopy = this.state.bands // grab a copy of the current band list
-    //     for (let i = 0; i < bandListCopy.length; i++) {
-    //         let newband = bandListCopy[i]
-    //         if (newband.id === _id) {        // if it’s the correct ID...
-    //             bandListCopy.splice(i, 1)  // delete band item
-    //             break                      // we’re done! break the loop
-    //         }
-    //     }
-    //     this.setState({ bands: bandListCopy }) // we update state with remaining bands
-    // }
+        let bandListCopy = this.state.bands // grab a copy of the current band list
+        for (let i = 0; i < bandListCopy.length; i++) {
+            let newband = bandListCopy[i]
+            if (newband.id === _id) {        // if it’s the correct ID...
+                bandListCopy.splice(i, 1)  // delete band item
+                break                      // we’re done! break the loop
+            }
+        }
+        this.setState({ bands: bandListCopy }) // we update state with remaining bands
+    }
 
 
 
