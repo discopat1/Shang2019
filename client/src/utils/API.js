@@ -83,7 +83,13 @@ export default {
   deleteBand: function (_id) {
     console.log("DeleteBand function fired"+ _id)
     return axios.delete("/api/bands/" + _id);
+  },
+  addBand: function(userId, bandId) {
+    // console.log(userId, bandId)
+    // console.log("Add band user id",userId + "Band id",_id)
+    return axios.put(`/api/users/register/all/${userId}`, {bandId} );
   }
+ 
   // //Get the user data
   // getUser: function (_id) {
   //   return axios.get("/api/users" + _id);

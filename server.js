@@ -10,6 +10,7 @@ const users = require("./routes/API/users");
 //PORT
 const PORT = process.env.PORT || 5000;
 
+mongoose.set('useFindAndModify', false);
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

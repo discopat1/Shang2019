@@ -7,7 +7,6 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const usersController = require("../../controllers/usersController");
 
-
 // Load User model
 const User = require("../../models/users");
 // @route POST api/users/register
@@ -24,9 +23,35 @@ router
   .get(usersController.findById)
 
 router
-.route("/register/all/:id/bands")
-.get(usersController.userBands)
-
+  .put("/register/all/:id", function(req, res){
+      let objectId = req.params.id
+      let bandId = req.body.bandId
+      let name = req.body.name
+      let day = req.body.day
+      let time = req.body.time
+      let stage = req.body.stage
+      let url= req.body.url
+      let image=req.body.image
+      User
+        .findOneAndUpdate({_id: objectId}, {$push:{
+          userBands: bandId, 
+        //   name:name, 
+        //   day:day, 
+        //   time:time, 
+        //   stage:stage,
+        //   url:url,
+        //   image:image
+         } }, {new:true})
+        .then(function(dbUser) {
+          // If the User was updated successfully, send it back to the client
+          res.json(dbUser);
+        })
+        .catch(function(err) {
+          // If an error occurs, send it back to the client
+          res.json(err);
+        });
+   
+    }),
   
 router
   .post("/register", (req, res) => {

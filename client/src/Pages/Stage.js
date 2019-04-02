@@ -49,7 +49,7 @@ class Stage extends Component {
         }
     
     // async addBand(id) {
-    //   Axios.delete(`/api/bands/${id}`)
+    //   Axios.delete(`/api/users/register/bands/${id}`)
     //   console.log("Here's the axios band id", id)
     // }
     // Loads all bands  and sets them to this.state.bands
@@ -74,10 +74,10 @@ class Stage extends Component {
   
     };
 
-     async addBand(_id){
-     
+    addBand = (_id) => {
       const userId = this.props.auth.user.id
-      console.log("addBand band id ", _id + "and this is the userId",userId);
+        API.addBand(userId, _id)
+      // console.log("addBand band id ", _id + "and this is the userId",userId);
     }
     render() {
      
@@ -98,7 +98,7 @@ class Stage extends Component {
             image={band.image}
             url={band.url}
             bio={band.bio}
-            stageFunc={this}
+            addBand={this.addBand}
 
             
             />

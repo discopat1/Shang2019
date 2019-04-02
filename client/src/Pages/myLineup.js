@@ -45,15 +45,15 @@ class myLineup extends Component {
                 
             })
             console.log("this is the userid", userId)
-            // this.loadbands()
+            this.loadbands()
         }
     }
 
-    // componentDidUpdate() {
-    //     this.loadBands();
-    // }
+    componentDidUpdate() {
+        this.loadBands();
+    }
     loadBands = () => {
-        API.getBands()
+        API.getUserBands()
             .then(res =>
                 this.setState({ bands: res.data, stage: "", band: "", time: "", day: "", image: "", url: "", bio: "", _id: ""})
             )

@@ -23,6 +23,22 @@ module.exports = {
           .catch(err => res.status(422).json(err));
       
     }, 
+
+    // addUserBands: function(req,res){
+    //   console.log("users controller ID", userId)
+    //   let objectId =userId
+    //   db.Users
+    //     .findOneAndUpdate({objectId:objectId}, {$push:{userBands:dbBands._id} }, {new:true})
+    //     .then(function(dbUser) {
+    //       // If the User was updated successfully, send it back to the client
+    //       res.json(dbUser);
+    //     })
+    //     .catch(function(err) {
+    //       // If an error occurs, send it back to the client
+    //       res.json(err);
+    //     });
+   
+    // },
     remove: function(req, res) {
       (console.log("usersController ID",userId))
       db.Users
