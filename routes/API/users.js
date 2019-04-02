@@ -32,7 +32,7 @@ router
     (console.log(req.body.bandId))
       let objectId = req.params.id
 
-      let bandId= req.body._id
+      let bandId= req.body.bandId
    
       User
         .findOneAndUpdate({_id: objectId}, {$push:{userBands: bandId} }, {new:true})
