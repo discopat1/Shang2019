@@ -35,37 +35,46 @@ class myLineup extends Component {
     onLogoutClick = e => {
         e.preventDefault();
         this.props.logoutUser();
-      };
+    };
 
     componentDidMount() {
         const userId= this.props.auth.user.id
         if(this.props.auth.isAuthenticated){
             this.setState({
-                userId:userId,
+                userId:userId
                 
             })
             console.log("this is the userid", userId)
-            this.loadbands()
-        }
+            
+        } 
+         
     }
 
     componentDidUpdate() {
-        this.loadBands();
-    }
-    loadBands = () => {
-        API.getUserBands()
+        this.loadUserBands();
+    };
+
+
+
+    loadUserBands = () => {
+        const userId= this.props.auth.user.id
+        API.getUserBands(userId)
+                
             .then(res =>
-                this.setState({ bands: res.data, stage: "", band: "", time: "", day: "", image: "", url: "", bio: "", _id: ""})
+                this.setState({ bands:res.users.data.userBands})
+                
             )
             .catch(err => console.log(err));
     };
 
     
 
-    //******THIS NEEDS TO FUNCTION ON USER's BAND ARRAY */
-    async deleteBand(_id) {
-        Axios.delete(`/api/bands/${_id}`)
-        console.log("Here's the axios band id", _id)
+    // THIS NEEDS TO FUNCTION ON USER's BAND ARRAY
+
+    // async deleteBand(_id) {
+    //     const userId= this.props.auth.user.id
+    //     Axios.deleteBand(userId,_id)
+    //     console.log("Here's the axios band id", _id)
 
     //     let bandListCopy = this.state.bands // grab a copy of the current band list
     //     for (let i = 0; i < bandListCopy.length; i++) {
@@ -76,7 +85,7 @@ class myLineup extends Component {
     //         }
     //     }
     //     this.setState({ bands: bandListCopy }) // we update state with remaining bands
-    }
+    // }
 
 
 

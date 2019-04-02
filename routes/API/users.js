@@ -23,25 +23,19 @@ router
   .get(usersController.findById)
 
 router
-  .put("/register/all/:id", function(req, res){
+  .route("/register/all/:id/bands")
+  .get(usersController.userBands)
+
+router
+  .put("/register/all/:id/bands", function(req, res){
+    (console.log(req.params.id));
+    (console.log(req.body.bandId))
       let objectId = req.params.id
-      let bandId = req.body.bandId
-      let name = req.body.name
-      let day = req.body.day
-      let time = req.body.time
-      let stage = req.body.stage
-      let url= req.body.url
-      let image=req.body.image
+
+      let bandId= req.body._id
+   
       User
-        .findOneAndUpdate({_id: objectId}, {$push:{
-          userBands: bandId, 
-        //   name:name, 
-        //   day:day, 
-        //   time:time, 
-        //   stage:stage,
-        //   url:url,
-        //   image:image
-         } }, {new:true})
+        .findOneAndUpdate({_id: objectId}, {$push:{userBands: bandId} }, {new:true})
         .then(function(dbUser) {
           // If the User was updated successfully, send it back to the client
           res.json(dbUser);

@@ -74,10 +74,11 @@ class Stage extends Component {
   
     };
 
-    addBand = (_id) => {
+    addBand = (bandId) => {
       const userId = this.props.auth.user.id
-        API.addBand(userId, _id)
-      // console.log("addBand band id ", _id + "and this is the userId",userId);
+    
+        API.addBand(userId,bandId)
+      console.log("addBand band id ", bandId + "and this is the userId",userId);
     }
     render() {
      

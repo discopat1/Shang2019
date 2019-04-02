@@ -20,7 +20,10 @@ const UserSchema = new Schema({
   },
   userBands:[{
     type: Schema.Types.ObjectId,
-			ref: "bands"
+      ref: "Bands" 
+   
+    
+      
   }]
 
 });
