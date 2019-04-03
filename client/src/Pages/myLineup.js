@@ -67,25 +67,26 @@ class myLineup extends Component {
             .catch(err => console.log(err));
     };
 
+   
     
 
     // THIS NEEDS TO FUNCTION ON USER's BAND ARRAY
 
-    async deleteBand(_id) {
-        const userId= this.props.auth.user.id
-        Axios.deleteBand(userId,_id)
-        console.log("Here's the axios band id", _id)
+//   async deleteBand(bandId) {
+//         const userId = this.props.auth.user.id
+//         API.deleteBand( userId, bandId)
+//         console.log("Here's the axios band id", bandId)
 
-        let bandListCopy = this.state.bands // grab a copy of the current band list
-        for (let i = 0; i < bandListCopy.length; i++) {
-            let newband = bandListCopy[i]
-            if (newband.id === _id) {        // if it’s the correct ID...
-                bandListCopy.splice(i, 1)  // delete band item
-                break                      // we’re done! break the loop
-            }
-        }
-        this.setState({ bands: bandListCopy }) // we update state with remaining bands
-    }
+//         let bandListCopy = this.state.bands // grab a copy of the current band list
+//         for (let i = 0; i < bandListCopy.length; i++) {
+//             let newband = bandListCopy[i]
+//             if (newband.id === bandId) {        // if it’s the correct ID...
+//                 bandListCopy.splice(i, 1)  // delete band item
+//                 break                      // we’re done! break the loop
+//             }
+//         }
+//         this.setState({ bands: bandListCopy }) // we update state with remaining bands
+//     }
 
 
 
@@ -134,7 +135,7 @@ class myLineup extends Component {
                                 </Card.ImgOverlay>
                                 <Card.Footer>
                                     <Button className="btn-success btn-large" href={card.url}><FontAwesomeIcon icon="info-circle" /></Button>
-                                    <Button variant="outline-warning btn-large" value={card._id} onClick={() => this.deleteBand(card._id)}>Remove Band</Button>
+                                    <Button variant="outline-warning btn-large" onClick={() => this.deleteBand(card._id)}>Remove Band</Button>
                                 </Card.Footer>
                             </Card>
                         ))}

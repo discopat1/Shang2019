@@ -27,11 +27,18 @@ router
   .get(usersController.userBands)
 
 router
+  .route("/register/all/:id/bands/:id")
+  .get(usersController.findUserBand)
+ 
+// router
+//   .route("/register/all/:id/bands/:id")
+//   .delete(usersController.remove)
+
+router
   .put("/register/all/:id/bands", function(req, res){
     (console.log(req.params.id));
     (console.log(req.body.bandId))
       let objectId = req.params.id
-
       let bandId= req.body.bandId
    
       User

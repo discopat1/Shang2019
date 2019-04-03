@@ -107,14 +107,18 @@ export default {
 
   //Get user's favorited bands for myLineup
   getUserBands: function (userId) {
-    
     return axios.get(`/api/users/register/all/${userId}/bands/`);
   },
 
+  //Get User band by Id 
+  getUserBandbyId: function(userId, bandId) {
+    return axios.get(`/api/users/register/all/${userId}/bands/`,{bandId})
+  },
+
   // Deletes the band with the given band id
-  deleteBand: function (userId, _id) {
-    console.log("DeleteBand function fired" + _id)
-    return axios.delete(`/api/users/register/all/${userId}/bands/`, {_id});
+  deleteBand: function (userId, bandId) {
+    console.log("DeleteBand function fired" + bandId)
+    return axios.delete(`/api/users/register/all/${userId}/bands/`,{bandId});
   },
 
   //Add Band to User's bands array

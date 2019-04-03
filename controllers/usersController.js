@@ -25,29 +25,23 @@ module.exports = {
 
   },
 
-  // addUserBands: function(req,res){
-  //   console.log("users controller ID", userId)
-  //   let objectId =userId
-  //   db.Users
-  //     .findOneAndUpdate({objectId:objectId}, {$push:{userBands:dbBands._id} }, {new:true})
-  //     .then(function(dbUser) {
-  //       // If the User was updated successfully, send it back to the client
-  //       res.json(dbUser);
-  //     })
-  //     .catch(function(err) {
-  //       // If an error occurs, send it back to the client
-  //       res.json(err);
-  //     });
-
-  // },
-  remove: function (req, res) {
-    (console.log("usersController ID", userId))
+  findUserBand: function (req, res){
+    let objectId = req.params.id
+    let bandId= req.body.bandId
     db.Users
-      .findById({ ObjectId: userId })
-      .findOneAndDelete({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .catch(err => res.status(422).json(err));
-  }
+    .find({_id:objectId}, {userBands:bandId})
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  },
+
+  // remove: function (req, res) {
+  //   let objectId= req.params.id
+  //   let bandId= req.body.bandId
+  //   db.Users
+  //     .find({_id:objectId},{$all:{userBands: bandId}})
+  //     .then(dbModel => dbModel.remove())
+  //     .catch(err => res.status(422).json(err));
+  // }
 
 
 }
