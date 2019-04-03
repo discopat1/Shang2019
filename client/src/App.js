@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component }from 'react';
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 //User Auth
 import jwt_decode from "jwt-decode";
@@ -52,8 +52,23 @@ if (localStorage.jwtToken) {
   }
 }
 
-function App() {
-  return (
+class App extends Component{
+  
+    constructor(props) {
+      super(props);
+      this.state = {}
+      this.connecToServer = this.connecToServer.bind(this);
+    }
+    connecToServer() {
+      fetch('/');
+    }
+  
+    componentDidMount() {
+      this.connecToServer();
+    }
+  render() {
+   return (
+    
     <Provider store={store}>
     <Router>
       <React.Fragment>
@@ -78,6 +93,7 @@ function App() {
 
 
   );
+}
 }
 
 export default App;

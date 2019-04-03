@@ -8,15 +8,20 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Nav from 'react-bootstrap/Nav';
 import API from "../../utils/API";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
 
 
 
 
 
 class Navigation extends Component{
- 
+  constructor(props) {
+    super(props);
 
-    state = {
+    this.state = {
+      data:[],
       bands: [],
       stage: "",
       band: "",
@@ -28,7 +33,7 @@ class Navigation extends Component{
       search:""
     };
   
- 
+  }
 
 // loadMain= (props) =>{
 //   API.getMain()
@@ -170,4 +175,14 @@ render(){
 
 };
 
-export default Navigation;
+Navigation.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps
+)(Navigation);
+
