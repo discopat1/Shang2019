@@ -142,7 +142,7 @@ render(){
       <Navbar className="bg-dark">
     
         <Nav.Item>
-          <Nav.Link to="/search">Home</Nav.Link>
+          <Link to="/search">Home</Link>
        </Nav.Item>
        <Nav.Item>
              <Link to ="/mylineup">myLineup</Link><br/>
