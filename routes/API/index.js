@@ -9,7 +9,7 @@ router.use("/bands", bandRoutes);
 //user Auth routes
 router.use("/users", userRoutes);
 
-//user data routes
+//user data & user band routes
 router.use("/userData", userDataRoutes);
 
 
