@@ -53,8 +53,8 @@ return (
                 <div className="firstpage-content">
                     <h3><span className="not-bold">Welcome to your</span> Shangri-La <span className="not-bold">app</span>! </h3>
                     <h5>Browse stages above to find new, and favorite bands</h5>
-                    <p>myLineup <FontAwesomeIcon icon="user-check"></FontAwesomeIcon>  is a personalized, shareable lineup of the shows you don't want to miss!</p>
-                    <p>Login below to access your myLineup</p>
+                    <h6>myLineup <FontAwesomeIcon icon="user-check"></FontAwesomeIcon>  is a personalized, shareable lineup of the shows you don't want to miss!</h6>
+                    <h6>Login below to access your myLineup</h6>
     
             <Form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
@@ -106,7 +106,7 @@ return (
                 </Button>
                 <br/>
                 <br/>
-                <p>First time user? Create an account now to access myLineup  <FontAwesomeIcon icon="user-check"></FontAwesomeIcon></p>
+                <h6>First time user? Create an account now to access myLineup  <FontAwesomeIcon icon="user-check"></FontAwesomeIcon></h6>
                 <Link to="/register" className="btn btn-outline-primary" id="create-account-button">Create Account</Link> 
               </div>
             </Form>

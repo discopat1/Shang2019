@@ -55,11 +55,11 @@ return (
         <Container id="firstpage-main">
         <div className="firstpage-content">
                 <h4>
-                <b>Register</b> below
+                <b/>Register below
               </h4>
-              <p className="grey-text text-darken-1">
+              <h5>
                 Already have an account? <Link to="/login" id="log-in-link">Log in</Link>
-              </p>
+              </h5>
            
             <Form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">

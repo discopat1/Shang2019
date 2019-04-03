@@ -10,6 +10,8 @@ import Nav from 'react-bootstrap/Nav';
 import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 
 
@@ -147,10 +149,12 @@ render(){
       <Navbar className="bg-dark">
     
         <Nav.Item>
-          <Link to="/search">Home</Link>
+          <Link to="/search">Full Lineup</Link>
        </Nav.Item>
        <Nav.Item>
-             <Link to ="/mylineup">myLineup</Link><br/>
+             <Link to ="/mylineup"> <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> myLineup</Link>
+        </Nav.Item>
+          <Nav.Item>
               <Link to="/login">Log in</Link>
            </Nav.Item>
         <Dropdown>
