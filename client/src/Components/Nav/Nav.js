@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Nav.css";
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
@@ -11,6 +11,7 @@ import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { logoutUser } from "../actions/authActions";
 
 
 
@@ -21,7 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class Navigation extends Component{
   constructor(props) {
     super(props);
-
+   
     this.state = {
       data:[],
       bands: [],
@@ -32,119 +33,48 @@ class Navigation extends Component{
       image: "",
       url: "",
       bio: "",
-      search:""
+      search:"",
+      userId:""
     };
   
   }
 
-// loadMain= (props) =>{
-//   API.getMain()
-//   .then(res =>
-  
-//    this.setState({
-//     bands:res.data,
-//     stage:res.data.stage,
-//     band:res.data.band,
-//     time:res.data.time,
-//     day:res.data.day,
-//     image:res.data.image,
-//     url:res.data.url,
-//     bio:res.data.bio
-//      })
-  
-//   )
-//   .catch(err => console.log(err));
+componentDidMount(){
+  const userId = this.props.auth.user.id
+  if (this.props.auth.isAuthenticated) {
+      this.setState({
+          userId: userId
+      })
+      console.log("this is the userid", userId)
 
-// };
-// loadSide=()=>{
-//   API.getSide()
-//   .then(res =>
-  
-//    this.setState({
-//     bands:res.data,
-//     stage:res.data.stage,
-//     band:res.data.band,
-//     time:res.data.time,
-//     day:res.data.day,
-//     image:res.data.image,
-//     url:res.data.url,
-//     bio:res.data.bio
-//      })
-  
-//   )
-//   .catch(err => console.log(err));
+  }
 
-// }
-// loadHarmonium=()=>{
-//   API.getHarmonium()
-//   .then(res =>
-  
-//    this.setState({
-//     bands:res.data,
-//     stage:res.data.stage,
-//     band:res.data.band,
-//     time:res.data.time,
-//     day:res.data.day,
-//     image:res.data.image,
-//     url:res.data.url,
-//     bio:res.data.bio
-//      })
-  
-//   )
-//   .catch(err => console.log(err));
-
-// }
-
-// loadOm=()=>{
-//   API.getOm()
-//   .then(res =>
-  
-//    this.setState({
-//     bands:res.data,
-//     stage:res.data.stage,
-//     band:res.data.band,
-//     time:res.data.time,
-//     day:res.data.day,
-//     image:res.data.image,
-//     url:res.data.url,
-//     bio:res.data.bio
-//      })
-  
-//   )
-//   .catch(err => console.log(err));
+}
 
 
-// };
 
+
+onLogoutClick= e =>{
+    e.preventDefault();
+    this.props.logoutUser();
+};
 
 
 handleInputChange=(e) =>{
   this.setState({search:e.target.value})
 }
-// handleFormSubmit=(e)=>{
-//   e.preventDefault();
-//   this.setState({search: e.target.value})
-//   alert("You are searching for a band!")
-  
-// };
-// handleMainStage=(e)=>{
-//   e.preventDefault();
-//   loadMain();
- 
-// }
-// handleSideStage =(e) =>{
-//   e.preventDefault();
-//   loadSide();
-// };
-// handleHarmonium = (e)=>{
-//   loadHarmonium();
-// };
+handleFormSubmit=(e)=>{
+  e.preventDefault();
+  this.setState({search: e.target.value})
+  alert("You are searching for a band!")
+}  
+myLineup=()=>this.props.auth.isAuthenticated ?(
+    <Redirect to="/mylineup"/>
+  ):(  alert("Please login or create an account!")
+  )
 
-// handleOm=(e)=>{
-//   loadOm();
-// };
-  
 render(){
+  
   return(  
       <Navbar className="bg-dark">
     
@@ -152,10 +82,13 @@ render(){
           <Link to="/search">Full Lineup</Link>
        </Nav.Item>
        <Nav.Item>
-             <Link to ="/mylineup"> <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> myLineup</Link>
+             <Link to ="/mylineup"onClick={() => this.myLineup()}> <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> myLineup</Link>
         </Nav.Item>
           <Nav.Item>
               <Link to="/login">Log in</Link>
+           </Nav.Item>
+           <Nav.Item>
+             <Button variant="btn btn-info" onClick={this.onLogoutClick}>Log Out</Button>
            </Nav.Item>
         <Dropdown>
             <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -187,6 +120,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  {logoutUser}
 )(Navigation);
 

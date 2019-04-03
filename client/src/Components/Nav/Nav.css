@@ -20,12 +20,16 @@
 } */
 
 .nav-item{
-    color:#007bff !important;
+    color:hotpink !important;
 }
 .nav-link{
     background-color:none;
     text-decoration: none;
     color: white;
+}
+
+a{
+    color:hotpink;
 }
 
 .dropdown-menu{
