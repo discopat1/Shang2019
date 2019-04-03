@@ -98,34 +98,33 @@ export default {
   //Get all users
 
   getUsers: function () {
-    return axios.get("/api/users/register/all")
+    return axios.get("/api/userdata/all")
   },
 
   //Get the user by ID
   getUser: function (id) {
-    return axios.get("/api/users/register", id);
+    return axios.get("/api/userdata/", id);
   },
 
   //Get user's favorited bands for myLineup
   getUserBands: function (userId) {
-    return axios.get(`/api/users/register/all/${userId}/bands/`);
+    return axios.get(`/api/userdata/${userId}/bands/`);
   },
 
   //Get User band by Id 
   getUserBandbyId: function(userId, bandId) {
-    return axios.get(`/api/users/register/all/${userId}/bands/`,{bandId})
+    return axios.get(`/api/userdata/${userId}/bands/${bandId}`)
   },
 
   // Deletes the band with the given band id
   deleteBand: function (userId, bandId) {
-    console.log("DeleteBand function fired" + bandId)
-    return axios.delete(`/api/users/register/all/${userId}/bands/`,{bandId});
+    return axios.delete(`/api/userdata/${userId}/bands/${bandId}`);
   },
 
   //Add Band to User's bands array
   addBand: function (userId, bandId) {
     console.log("Axios is getting:",userId, bandId)
-    return axios.put(`/api/users/register/all/${userId}/bands/`,{bandId});
+    return axios.put(`/api/userdata/${userId}/bands/${bandId}`);
   }
 
 

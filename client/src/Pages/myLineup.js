@@ -72,22 +72,23 @@ class myLineup extends Component {
 
 
     // THIS NEEDS TO FUNCTION ON USER's BAND ARRAY
+         deleteBand = (bandId) => {
+            const userId = this.props.auth.user.id
+            API.deleteBand(userId,bandId);
+            console.log("deleteBand function from mylineup: ", userId, "and bandId: ",bandId)
 
-    //   async deleteBand(bandId) {
-    //         const userId = this.props.auth.user.id
-    //         API.deleteBand( userId, bandId)
-    //         console.log("Here's the axios band id", bandId)
+      };
 
-    //         let bandListCopy = this.state.bands // grab a copy of the current band list
-    //         for (let i = 0; i < bandListCopy.length; i++) {
-    //             let newband = bandListCopy[i]
-    //             if (newband.id === bandId) {        // if it’s the correct ID...
-    //                 bandListCopy.splice(i, 1)  // delete band item
-    //                 break                      // we’re done! break the loop
-    //             }
-    //         }
-    //         this.setState({ bands: bandListCopy }) // we update state with remaining bands
-    //     }
+        //     let bandListCopy = this.state.bands // grab a copy of the current band list
+        //     for (let i = 0; i < bandListCopy.length; i++) {
+        //         let newband = bandListCopy[i]
+        //         if (newband.id === bandId) {        // if it’s the correct ID...
+        //             bandListCopy.splice(i, 1)  // delete band item
+        //             break                      // we’re done! break the loop
+        //         }
+        //     }
+        //     this.setState({ bands: bandListCopy }) // we update state with remaining bands
+        // }
 
 
 
@@ -192,8 +193,3 @@ export default connect(
 
 
 
-              //USE Books.js PAGE inside of 
-              //Activity 11- Stu_ReactRouter- #20- React
-              //as an example of what to put here for the user's lineup
-              //Do I need to import the card component? 
-              //Probably

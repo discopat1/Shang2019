@@ -5,7 +5,6 @@ const keys = require("../../config/keys");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
-const usersController = require("../../controllers/usersController");
 
 // Load User model
 const User = require("../../models/users");
@@ -14,46 +13,7 @@ const User = require("../../models/users");
 // @access Public
 
 
-router
-  .route("/register/all")
-  .get(usersController.findAll)
 
-router
-  .route("/register/all/:id")
-  .get(usersController.findById)
-
-router
-  .route("/register/all/:id/bands")
-  .get(usersController.userBands)
-
-router
-  .route("/register/all/:id/bands/:id")
-  .get(usersController.findUserBand)
- 
-// router
-//   .route("/register/all/:id/bands/:id")
-//   .delete(usersController.remove)
-
-router
-  .put("/register/all/:id/bands", function(req, res){
-    (console.log(req.params.id));
-    (console.log(req.body.bandId))
-      let objectId = req.params.id
-      let bandId= req.body.bandId
-   
-      User
-        .findOneAndUpdate({_id: objectId}, {$push:{userBands: bandId} }, {new:true})
-        .then(function(dbUser) {
-          // If the User was updated successfully, send it back to the client
-          res.json(dbUser);
-        })
-        .catch(function(err) {
-          // If an error occurs, send it back to the client
-          res.json(err);
-        });
-   
-    }),
-  
 router
   .post("/register", (req, res) => {
           // Form validation
