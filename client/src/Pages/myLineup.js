@@ -20,6 +20,7 @@ class myLineup extends Component {
     constructor(props) {
     super(props);
     this.state = {
+        
         bands: [],
         stage:"",
         band: "",

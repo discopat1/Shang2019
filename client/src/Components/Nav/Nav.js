@@ -24,7 +24,7 @@ class Navigation extends Component{
     super(props);
    
     this.state = {
-      data:[],
+      logbutton:"",
       bands: [],
       stage: "",
       band: "",
@@ -43,11 +43,15 @@ componentDidMount(){
   const userId = this.props.auth.user.id
   if (this.props.auth.isAuthenticated) {
       this.setState({
-          userId: userId
+          userId: userId,
+          logbutton:"Log Out"
       })
       console.log("this is the userid", userId)
 
   }
+  else(this.setState({
+    logbutton:"Log In"
+  }));
 
 }
 
@@ -93,7 +97,7 @@ render(){
              <Button 
              variant="outline-primary"
              >
-             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> Login
+             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> {this.state.logbutton}
              </Button>
              </Link>
            </Nav.Item>
