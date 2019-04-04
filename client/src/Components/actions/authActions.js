@@ -15,7 +15,7 @@ import {
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
-    .then(res => history.push("/login")) // re-direct to login on successful register
+    .then(res => history.push("/mylineup")) // re-direct to login on successful register
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -51,17 +51,17 @@ export const loginUser = userData => dispatch => {
 };
 
 //Get userData
-export const getUser= userData=> dispatch =>{
-  axios
-  .get("/api/users/login",userData)
-  .then(console.log("Here's the user id from authActions:", userData.id))
-  .catch(err =>
-    dispatch({
-      type: GET_USER_DATA,
-      payload: err.response.data
-    })
-  );
-};
+// export const getUser= userData=> dispatch =>{
+//   axios
+//   .get("/api/users/login",userData)
+//   .then(console.log("Here's the user id from authActions:", userData.id))
+//   .catch(err =>
+//     dispatch({
+//       type: GET_USER_DATA,
+//       payload: err.response.data
+//     })
+//   );
+// };
 // Set logged in user
 export const setCurrentUser = decoded => {
   return {

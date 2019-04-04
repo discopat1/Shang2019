@@ -4,7 +4,6 @@ import Axios from 'axios';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../Components/actions/authActions";
-import { getUser } from "../Components/actions/authActions";
 import "./myLineup.css";
 import "../Components/BandCards/Bandcards.css"
 import Schedule from '../Components/Schedule';
@@ -18,9 +17,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 class myLineup extends Component {
-
-    state = {
+    constructor(props) {
+    super(props);
+    this.state = {
         bands: [],
+        stage:"",
         band: "",
         time: "",
         day: "",
@@ -31,6 +32,7 @@ class myLineup extends Component {
         userId: ""
 
     };
+}
 
 
     onLogoutClick = e => {
@@ -153,7 +155,7 @@ class myLineup extends Component {
                     </div>
                 </Container>
             </React.Fragment>
-        )
+        );
 
     }
 
