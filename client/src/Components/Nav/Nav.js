@@ -78,22 +78,30 @@ render(){
   return(  
       <Navbar className="bg-dark">
     
-        <Nav.Item>
-          <Link to="/search">Full Lineup</Link>
-       </Nav.Item>
+       
        <Nav.Item>
-             <Link to ="/mylineup"onClick={() => this.myLineup()}> <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> myLineup</Link>
+             <Link to ="/mylineup"onClick={() => this.myLineup()}> 
+             <Button 
+             variant="outline-info"
+             >
+             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> myLineup
+             </Button>
+             </Link>
         </Nav.Item>
           <Nav.Item>
-              <Link to="/login">Log in</Link>
-           </Nav.Item>
-           <Nav.Item>
-             <Button variant="btn btn-info" onClick={this.onLogoutClick}>Log Out</Button>
+          <Link to ="/login"> 
+             <Button 
+             variant="outline-primary"
+             >
+             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> Login
+             </Button>
+             </Link>
            </Nav.Item>
         <Dropdown>
             <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Stage Schedules</Dropdown.Toggle>
         <Dropdown.Menu>
+            <Link to="/search">Full Lineup</Link><br/>
             <Link to="/main">Main Stage</Link><br/>
             <Link to="/side">Side Stage</Link><br/>
             <Link to="/harmonium">Harmonium</Link><br/>

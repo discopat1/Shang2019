@@ -108,13 +108,13 @@ class myLineup extends Component {
                         <h6 style={{ color: "black" }}>Share with friends to meet up and git down!</h6>
 
                         <b />
-                        <Button
-                            className="btn btn-large"
-                            to="/search"
+                        <Link to="/search">
+                           <Button 
                             variant="outline-info"
                         >
                             Get Bands
                         </Button>
+                        </Link>
                         <b />
                         <Button variant="outline-success btn-large">
                             Share
