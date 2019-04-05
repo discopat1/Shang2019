@@ -47,9 +47,9 @@ class myLineup extends Component {
         this.loadUserBands()
     }
 
-    componentDidUpdate() {
-        this.loadUserBands();
-    };
+    // componentDidUpdate() {
+    //     this.loadUserBands();
+    // };
 
 
 
