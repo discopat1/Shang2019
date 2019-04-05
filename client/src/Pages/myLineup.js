@@ -80,6 +80,7 @@ class myLineup extends Component {
             const userId = this.props.auth.user.id
             API.deleteBand(userId,bandId);
             console.log("deleteBand function from mylineup: ", userId, "and bandId: ",bandId)
+            this.loadUserBands();
 
       };
 
