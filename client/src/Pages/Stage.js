@@ -48,15 +48,9 @@ class Stage extends Component {
       
     }
    
-    
     this.loadBands()
   }
 
-  // async addBand(id) {
-  //   Axios.delete(`/api/users/register/bands/${id}`)
-  //   console.log("Here's the axios band id", id)
-  // }
-  // Loads all bands  and sets them to this.state.bands
   loadBands = () => {
     API.getBands()
       .then(res =>

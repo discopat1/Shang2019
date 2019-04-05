@@ -7,13 +7,9 @@ import { logoutUser } from "../Components/actions/authActions";
 import "./myLineup.css";
 import "../Components/BandCards/Bandcards.css"
 import Schedule from '../Components/Schedule';
-import Jumbotron from "react-bootstrap/Jumbotron";
-import Container from 'react-bootstrap/Container';
+import { Container,Jumbotron,Card,Button,Row,Col} from "react-bootstrap";
 import API from "../utils/API";
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 
 
 class myLineup extends Component {
@@ -36,10 +32,7 @@ class myLineup extends Component {
 }
 
 
-    onLogoutClick = e => {
-        e.preventDefault();
-        this.props.logoutUser();
-    };
+   
 
     componentDidMount() {
         const userId = this.props.auth.user.id
@@ -51,7 +44,7 @@ class myLineup extends Component {
             console.log("this is the userid", userId)
 
         }
-        this.loadUserBands();
+        this.loadUserBands()
     }
 
     componentDidUpdate() {
@@ -72,9 +65,17 @@ class myLineup extends Component {
     };
 
 
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutUser();
+    };
 
+    shareButton=(e)=>{
+        e.preventDefault();
+        alert("Sharing coming soon!")
+    }
 
-    // THIS NEEDS TO FUNCTION ON USER's BAND ARRAY
+    // Deletes band from user's array, loops back through remaining bands
          deleteBand = (bandId) => {
             const userId = this.props.auth.user.id
             API.deleteBand(userId,bandId);
@@ -103,12 +104,10 @@ class myLineup extends Component {
         return (
             <React.Fragment>
                 <Jumbotron>
-                    <div className="mylineup-header">
-                        <h2> Welcome to myLineup , {user.name}!</h2><FontAwesomeIcon icon="user-check" />
+                    <div id="mylineup-header"> 
+                        <h2> Welcome to myLineup,{user.name}!</h2><FontAwesomeIcon icon="user-check" />
                         <h6 style={{ color: "black" }}>See your shows!<br /> Easily Remove performers, or go look for new ones to check out.</h6><br />
                         <h6 style={{ color: "black" }}>Share with friends to meet up and git down!</h6>
-
-                        <b />
                         <Link to="/search">
                            <Button 
                             variant="outline-info"
@@ -116,22 +115,21 @@ class myLineup extends Component {
                             Get Bands
                         </Button>
                         </Link>
-                        <b />
-                        <Button variant="outline-success btn-large">
+                        <Button variant="outline-success btn-large"onClick={this.shareButton}>
                             Share
                         </Button>
+                        
                         <Button
                             onClick={this.onLogoutClick}
                             variant="outline-primary btn-large"
                         >
                             Logout
                         </Button>
-                    </div>
-
+                        </div>
                 </Jumbotron>
                 <Container>
                     <div id="all-bands-header">
-                        <h2>My Shows</h2><br />
+                        <h1>My Shows</h1><hr />
 
                         <Schedule>
                             {this.state.bands.map(card => (
@@ -159,7 +157,6 @@ class myLineup extends Component {
         );
 
     }
-
 }
 
 myLineup.propTypes = {

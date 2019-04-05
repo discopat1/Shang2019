@@ -19,7 +19,7 @@
     background: rgb(3, 8, 12, .3);
     text-align: center;
     height: 15%;
-    font-family: 'Fugaz One', cursive;
+    font-family: 'Fugaz One';
     font-size:40px;
     padding-top:0;
 }
@@ -36,7 +36,7 @@
         font-size:30px;
     }
     h4{
-        font-size:16px;
+        font-size:20px;
     }
     }
     

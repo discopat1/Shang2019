@@ -27,3 +27,11 @@ input{
 h6{
     color:white;
 }
+@media only screen and (max-width: 600px) {
+h3{
+ font-size:30px;
+}
+.firstpage-content{
+    width:100vpw;
+}
+}

@@ -1,19 +1,13 @@
 import React, {Component} from "react";
 import { Link, Redirect } from "react-router-dom";
 import "./Nav.css";
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Nav from 'react-bootstrap/Nav';
 import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { logoutUser } from "../actions/authActions";
 import Axios from "axios";
-
+import {Navbar, Button,Dropdown,Nav,} from "react-bootstrap";
 
 
 
