@@ -74,7 +74,7 @@ class Mainstage extends Component {
       return(
         <React.Fragment>
         <div id="schedule-head">
-              <h1>Main Stage Bands</h1>
+              <h1>Main Stage Performers</h1>
           </div>
           <Schedule>
           {this.state.bands.map(band=>(

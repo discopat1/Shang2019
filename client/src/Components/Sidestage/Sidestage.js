@@ -68,7 +68,7 @@ class Sidestage extends Component {
       return(
         <React.Fragment>
           <div id="schedule-head">
-              <h1>Side Stage Bands</h1>
+              <h1>Side Stage Performers</h1>
           </div>
           <Schedule>
           {this.state.bands.map(band =>(

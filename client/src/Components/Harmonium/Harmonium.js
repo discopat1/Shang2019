@@ -68,7 +68,7 @@ class Harmonium extends Component {
       return(
           <React.Fragment>
           <div id="schedule-head">
-              <h1>Harmoinum Bands</h1>
+              <h1>Harmoinum Performers</h1>
           </div>
           <Schedule>
           {this.state.bands.map(band=>(
