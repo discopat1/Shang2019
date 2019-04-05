@@ -5,7 +5,7 @@ module.exports = {
   findAll: function(req, res) {
     db.Bands
       .find(req.query)
-      .sort({time: -1})
+      .sort({time: +1})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
       
@@ -13,7 +13,7 @@ module.exports = {
   findMain:function(req,res){
     db.Bands
     .find({stage:"Main"})
-    .sort({ time: -1 })
+    .sort({ time: +1 })
     .then(dbModel=>res.json(dbModel))
     .catch(err=>res.status(422).json(err))
   },
