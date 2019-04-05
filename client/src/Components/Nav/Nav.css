@@ -32,6 +32,7 @@ a{
     color:hotpink;
 }
 
+
 .dropdown-menu{
     flex-direction: column;
     color:white !important;
@@ -46,3 +47,10 @@ a{
 .dropdown-item{
     color:lime !important;
 }
+
+@media only screen and (max-width: 600px) {
+   .navbar{
+       width:100%;
+   }
+   
+  }

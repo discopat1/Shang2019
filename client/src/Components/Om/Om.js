@@ -92,7 +92,7 @@ class Om extends Component {
 }
 
 Om.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
+ 
   auth: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({

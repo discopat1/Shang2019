@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import './Stage.css'
 import { logoutUser } from "../Components/actions/authActions";
 import Schedule from "../Components/Schedule";
 import Bandcards from "../Components/BandCards";
@@ -23,8 +24,8 @@ class Stage extends Component {
       url: "",
       bio: "",
       _id: "",
-      userId: "",
-
+      userId: ""
+     
     };
   }
 
@@ -40,11 +41,14 @@ class Stage extends Component {
       const userId = this.props.auth.user.id
       this.setState({
         userId: userId,
-
+        
       })
 
       console.log("this is the userId", userId)
+      
     }
+   
+    
     this.loadBands()
   }
 
@@ -75,9 +79,14 @@ class Stage extends Component {
   };
 
   addBand = (bandId) => {
+    if(this.props.auth.isAuthenticated){
     const userId = this.props.auth.user.id
     API.addBand(userId, bandId)
     console.log("addBand band id ", bandId + "and this is the userId", userId);
+  }
+  else(
+    alert("Login to add to your lineup")
+  )
   }
   render() {
 

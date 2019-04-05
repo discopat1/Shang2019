@@ -92,7 +92,7 @@ class Harmonium extends Component {
 }
 
 Harmonium.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
+  
   auth: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({

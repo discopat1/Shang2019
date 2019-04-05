@@ -12,6 +12,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { logoutUser } from "../actions/authActions";
+import Axios from "axios";
 
 
 
@@ -22,7 +23,7 @@ import { logoutUser } from "../actions/authActions";
 class Navigation extends Component{
   constructor(props) {
     super(props);
-   
+   this.state=this.initialState
     this.state = {
       logbutton:"",
       bands: [],
@@ -58,9 +59,19 @@ componentDidMount(){
 
 
 
+logClick=(e)=>{
+  e.preventDefault();
+  if (this.props.auth.isAuthenticated){
+    this.props.logoutUser();
+  }
+  
+};
+
+
 onLogoutClick= e =>{
     e.preventDefault();
     this.props.logoutUser();
+    this.setState({logbutton:"Log In"})
 };
 
 
@@ -70,7 +81,7 @@ handleInputChange=(e) =>{
 handleFormSubmit=(e)=>{
   e.preventDefault();
   this.setState({search: e.target.value})
-  alert("You are searching for a band!")
+  alert("Search feature coming soon!")
 }  
 myLineup=()=>this.props.auth.isAuthenticated ?(
     <Redirect to="/mylineup"/>
@@ -81,8 +92,17 @@ render(){
   
   return(  
       <Navbar className="bg-dark">
-    
-       
+      <Dropdown>
+            <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Stages</Dropdown.Toggle>
+        <Dropdown.Menu>
+            <Link to="/search">Full Lineup</Link><br/>
+            <Link to="/main">Main Stage</Link><br/>
+            <Link to="/side">Side Stage</Link><br/>
+            <Link to="/harmonium">Harmonium</Link><br/>
+            <Link to="/om">Om Dome</Link><br/>
+         </Dropdown.Menu>
+        </Dropdown>
        <Nav.Item>
              <Link to ="/mylineup"onClick={() => this.myLineup()}> 
              <Button 
@@ -96,28 +116,18 @@ render(){
           <Link to ="/login"> 
              <Button 
              variant="outline-primary"
-             >
-             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> {this.state.logbutton}
+             onClick={this.logClick}>
+             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon>Log In
              </Button>
              </Link>
            </Nav.Item>
-        <Dropdown>
-            <Dropdown.Toggle variant="outline-success" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Stage Schedules</Dropdown.Toggle>
-        <Dropdown.Menu>
-            <Link to="/search">Full Lineup</Link><br/>
-            <Link to="/main">Main Stage</Link><br/>
-            <Link to="/side">Side Stage</Link><br/>
-            <Link to="/harmonium">Harmonium</Link><br/>
-            <Link to="/om">Om Dome</Link><br/>
-         </Dropdown.Menu>
-        </Dropdown>
+      
         
-           <Form inline>
+           {/* <Form inline>
             <FormControl type="band" placeholder="Search Bands" className="mr-sm-2" onChange={this.handleInputChange} />
-            <Button variant="outline-primary">Search</Button>
+            <Button variant="outline-primary" onSubmit={this.searchBands}>Search</Button>
             
-          </Form>
+          </Form> */}
   </Navbar>
 )
 }
