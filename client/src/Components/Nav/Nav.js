@@ -53,12 +53,12 @@ class Navigation extends Component {
 
 
 
-  loginRedirect = (e) => {
-    e.preventDefault();
-    window.location.pathname = '/login'
+  // loginRedirect = (e) => {
+  //   e.preventDefault();
+  //   Redirect = '/login'
 
 
-  };
+  // };
 
 
 
@@ -99,9 +99,10 @@ render(){
         </Dropdown.Menu>
       </Dropdown>
       <Nav.Item>
-        <Link to="/mylineup" onClick={() => this.myLineup()}>
+        <Link to="/mylineup" >
           <Button
             variant="outline-info"
+            onClick={() => this.myLineup()}
           >
             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon> myLineup
              </Button>
@@ -110,16 +111,18 @@ render(){
       <Nav.Item>
         {this.props.auth.isAuthenticated ? (
           <Button
-            variant="outline-primary"
+            variant="outline-warning"
             onClick={this.onLogoutClick}>
             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon>Log Out
              </Button>
         ) : (
-            <Button
-              variant="outline-primary"
-              onClick={this.loginRedirect}>
-              <FontAwesomeIcon icon="user-check"></FontAwesomeIcon>Log In
+          <Link to ="/login"> 
+             <Button 
+             variant="outline-primary"
+            >
+             <FontAwesomeIcon icon="user-check"></FontAwesomeIcon>Log In
              </Button>
+             </Link>
 
           )}
         {/* <Link to ="/login"> 
