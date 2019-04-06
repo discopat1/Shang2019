@@ -9,6 +9,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 
+
+//Create a function to call API update state with array of favorited userband ID's 
+
 class Stage extends Component {
   constructor(props) {
     super(props);
@@ -24,8 +27,8 @@ class Stage extends Component {
       url: "",
       bio: "",
       _id: "",
-      userId: ""
-     
+      userId: "",
+      loggedText: ""
     };
   }
 
@@ -41,14 +44,15 @@ class Stage extends Component {
       const userId = this.props.auth.user.id
       this.setState({
         userId: userId,
-        
+
       })
 
       console.log("this is the userId", userId)
-      
+
     }
-   
-    this.loadBands()
+
+    this.loadBands();
+
   }
 
   loadBands = () => {
@@ -66,22 +70,29 @@ class Stage extends Component {
           bio: res.data.bio,
           _id: res.data._id,
 
+
         })
+
       )
       .catch(err => console.log(err));
 
   };
 
   addBand = (bandId) => {
-    if(this.props.auth.isAuthenticated){
-    const userId = this.props.auth.user.id
-    API.addBand(userId, bandId)
-    console.log("addBand band id ", bandId + "and this is the userId", userId);
+    if (this.props.auth.isAuthenticated) {
+      const userId = this.props.auth.user.id
+      API.addBand(userId, bandId)
+
+
+    }
+    else (
+      alert("Login to add to your lineup")
+
+
+    )
   }
-  else(
-    alert("Login to add to your lineup")
-  )
-  }
+
+
   render() {
 
     return (
@@ -102,6 +113,9 @@ class Stage extends Component {
               url={band.url}
               bio={band.bio}
               addBand={this.addBand}
+
+
+
 
 
             />

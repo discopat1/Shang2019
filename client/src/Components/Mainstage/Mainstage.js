@@ -98,7 +98,6 @@ class Mainstage extends Component {
 }
 
 Mainstage.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({

@@ -64,12 +64,14 @@ module.exports = {
         .then(function(dbUser) {
           // If the User was updated successfully, send it back to the client
           res.json(dbUser);
-        });
+        })
+        
       }
       );
         /*,{userBands:{$eq:{bandId}}})
       .then(dbModel => dbModel.remove())
-      .catch(err => res.status(422).json(err));*/
+       .catch(err => res.status(422).json(err));*/
+     
   }
 
 

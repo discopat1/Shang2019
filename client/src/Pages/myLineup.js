@@ -47,9 +47,7 @@ class myLineup extends Component {
         this.loadUserBands()
     }
 
-    // componentDidUpdate() {
-    //     this.loadUserBands();
-    // };
+  
 
 
 
@@ -78,22 +76,10 @@ class myLineup extends Component {
     // Deletes band from user's array, loops back through remaining bands
          deleteBand = (bandId) => {
             const userId = this.props.auth.user.id
-            API.deleteBand(userId,bandId);
-            console.log("deleteBand function from mylineup: ", userId, "and bandId: ",bandId)
-            this.loadUserBands();
-
+            API.deleteBand(userId,bandId)
+           this.loadUserBands();
       };
 
-        //     let bandListCopy = this.state.bands // grab a copy of the current band list
-        //     for (let i = 0; i < bandListCopy.length; i++) {
-        //         let newband = bandListCopy[i]
-        //         if (newband.id === bandId) {        // if it’s the correct ID...
-        //             bandListCopy.splice(i, 1)  // delete band item
-        //             break                      // we’re done! break the loop
-        //         }
-        //     }
-        //     this.setState({ bands: bandListCopy }) // we update state with remaining bands
-        // }
 
 
 

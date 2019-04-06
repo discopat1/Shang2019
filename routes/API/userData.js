@@ -12,7 +12,7 @@ router
   .get(usersController.findById)
 
 router
-  .route("/:id/bands/")
+  .route("/:id/bands")
   .get(usersController.userBands)
   
 
