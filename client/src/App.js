@@ -9,7 +9,27 @@ import PrivateRoute from "./Components/private-route/PrivateRoute";
 import { Provider } from "react-redux";
 import "./App.css";
 import store from "./store";
-
+//Social Media Sharing:
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  WhatsappShareButton,
+  PinterestShareButton,
+  VKShareButton,
+  OKShareButton,
+  RedditShareButton,
+  TumblrShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  ViberShareButton,
+  WorkplaceShareButton,
+  LineShareButton,
+  PocketShareButton,
+  InstapaperShareButton,
+  EmailShareButton,
+} from 'react-share';
 //CSS
 
 

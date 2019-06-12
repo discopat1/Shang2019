@@ -26,7 +26,7 @@ const bandSeed = [
         "band": "Wookiefoot",
         "time": "11:00pm",
         "day": "Saturday",
-        "image": "https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/156417_10151264975545491_1167583631_n.jpg?_nc_cat=106&_nc_ht=scontent-dfw5-1.xx&oh=197e65446fd81dc72b5f1f13ed20e828&oe=5CE17745",
+        "image": "https://shangrilafest.com/wp-content/uploads/2019/02/Wookiefoot-SL-2018-Slider--1200x500.jpg",
         "url": "http://www.wookiefoot.com",
         "bio": "Wookiefoot is a band, a 501C3 Non-Profit Charity Organization, a circus, a philosophy, and a community of globe trekking bliss junkies and believers that are the fuel to keep this Tribadelic Spaceship going! Their charity organization (with the support of their community) has donated over $500,000 to third world relief efforts. Wookiefoot’s live sets are an always inspiring and entertaining barrage of sonic and visual stimulation. The fast-paced circus-like set has been called “Short Attention Span Musical Theater”. These live performances are a one of a kind experience that mixes Reggae, World Beat, Hip Hop, Irish, Funk, Folk, Rock & more with a large band featuring everything from a vintage Hammond Organ to Bag Pipes! Combine that with a mind-blowing stage show that may include anything (such as a light show, projection, costumes, fire, dancers, aerialists, magic, clowns, puppets, etc)… and you better buckle up!"
     },

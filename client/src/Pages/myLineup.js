@@ -10,6 +10,7 @@ import Schedule from '../Components/Schedule';
 import { Container,Jumbotron,Card,Button,Row,Col} from "react-bootstrap";
 import API from "../utils/API";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FacebookShareButton, TwitterShareButton, EmailShareButton,} from 'react-share';
 
 
 class myLineup extends Component {
@@ -69,8 +70,8 @@ class myLineup extends Component {
     };
 
     shareButton=(e)=>{
-        e.preventDefault();
-        alert("Sharing coming soon!")
+        const userId = this.props.auth.user.id
+
     }
 
     // Deletes band from user's array, loops back through remaining bands
@@ -92,7 +93,7 @@ class myLineup extends Component {
             <React.Fragment>
                 <Jumbotron>
                     <div id="mylineup-header"> 
-                        <h2> Welcome to myLineup,{user.name}!</h2><FontAwesomeIcon icon="user-check" />
+                        <h2> Welcome to myLineup, {user.name}!</h2><FontAwesomeIcon icon="user-check" />
                         <h6 style={{ color: "black" }}>See your shows!<br /> Easily Remove performers, or go look for new ones to check out.</h6><br />
                         <h6 style={{ color: "black" }}>Share with friends to meet up and git down!</h6>
                         <Link to="/search">
@@ -102,9 +103,9 @@ class myLineup extends Component {
                             Get Bands
                         </Button>
                         </Link>
-                        <Button variant="outline-success btn-large"onClick={this.shareButton}>
+                        <Button  variant="outline-info btn-large"><FacebookShareButton children={Schedule} url= {"myLineup/"} quote={"Check out myLineup for Shangri-La!      Get the Shang app:www.ShangApp.com"} hashtag={"#ShangriLa2019"}onClick={this.shareButton}>
                             Share
-                        </Button>
+                        </FacebookShareButton></Button>
                         
                         <Button
                             onClick={this.onLogoutClick}
