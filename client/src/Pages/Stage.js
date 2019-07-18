@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import './Stage.css'
+import festival from './festival.json'
 import { logoutUser } from "../Components/actions/authActions";
 import Schedule from "../Components/Schedule";
 import Bandcards from "../Components/BandCards";
 import API from "../../src/utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+
 
 
 
@@ -18,6 +20,8 @@ class Stage extends Component {
 
 
     this.state = {
+      // festival,
+      
       bands: [],
       stage: "",
       band: "",
@@ -44,7 +48,7 @@ class Stage extends Component {
       const userId = this.props.auth.user.id
       this.setState({
         userId: userId,
-
+        
       })
 
       console.log("this is the userId", userId)

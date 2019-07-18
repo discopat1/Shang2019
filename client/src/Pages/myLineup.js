@@ -7,6 +7,7 @@ import { logoutUser } from "../Components/actions/authActions";
 import "./myLineup.css";
 import "../Components/BandCards/Bandcards.css"
 import Schedule from '../Components/Schedule';
+import sharemyLineup from './sharemyLineup';
 import { Container,Jumbotron,Card,Button,Row,Col} from "react-bootstrap";
 import API from "../utils/API";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,7 +29,7 @@ class myLineup extends Component {
         bio: "",
         _id: "",
         userId: ""
-
+        
     };
 }
 
@@ -70,7 +71,8 @@ class myLineup extends Component {
     };
 
     shareButton=(e)=>{
-        const userId = this.props.auth.user.id
+      
+        // href={window.location+"/"+this.props.auth.userId}
 
     }
 
@@ -89,6 +91,9 @@ class myLineup extends Component {
 
     render() {
         const { user } = this.props.auth;
+        const userId = this.props.auth.user.id
+        const url= window.location +"/"+ userId
+        console.log("Here's the URL",url)
         return (
             <React.Fragment>
                 <Jumbotron>
@@ -103,9 +108,11 @@ class myLineup extends Component {
                             Get Bands
                         </Button>
                         </Link>
-                        <Button  variant="outline-info btn-large"><FacebookShareButton children={Schedule} url= {"myLineup/"} quote={"Check out myLineup for Shangri-La!      Get the Shang app:www.ShangApp.com"} hashtag={"#ShangriLa2019"}onClick={this.shareButton}>
+                        <FacebookShareButton 
+                         className="button" variant="outline-info btn-large" url={window.location+"/"+this.props.auth.user.id} children={Schedule}  quote={"Check out myLineup for Shangri-La!      Get the Shang app:www.ShangApp.com"} hashtag={"#ShangriLa2019"}onClick={this.shareButton}>
                             Share
-                        </FacebookShareButton></Button>
+                            
+                        </FacebookShareButton>
                         
                         <Button
                             onClick={this.onLogoutClick}

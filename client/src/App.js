@@ -12,22 +12,7 @@ import store from "./store";
 //Social Media Sharing:
 import {
   FacebookShareButton,
-  LinkedinShareButton,
   TwitterShareButton,
-  TelegramShareButton,
-  WhatsappShareButton,
-  PinterestShareButton,
-  VKShareButton,
-  OKShareButton,
-  RedditShareButton,
-  TumblrShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  ViberShareButton,
-  WorkplaceShareButton,
-  LineShareButton,
-  PocketShareButton,
-  InstapaperShareButton,
   EmailShareButton,
 } from 'react-share';
 //CSS
@@ -36,6 +21,7 @@ import {
 //Components
 
 import Header from './Components/Header';
+
 import Nav from './Components/Nav';
 import Stage from './Pages/Stage';
 import Mainstage from './Components/Mainstage/Mainstage';
@@ -45,6 +31,7 @@ import Sidestage from './Components/Sidestage';
 import Register from "./Components/auth/Register";
 import Login from "./Components/auth/Login";
 import myLineup from './Pages/myLineup';
+import sharemyLineup from './Pages/sharemyLineup';
 import "../src/Components/BandCards/Bandcards.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -105,6 +92,7 @@ class App extends Component{
           <Route exact path="/side" component={Sidestage} />
           <Route exact path="/harmonium" component={Harmonium} />
           <Route exact path="/om" component={Om} />
+          <Route path = "/myLineup/:id" component={sharemyLineup}/>
           </Switch>
         </div>
       </React.Fragment>
